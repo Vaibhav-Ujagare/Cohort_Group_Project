@@ -1576,22 +1576,12 @@ export namespace Prisma {
 
   export type AggregateUser_details = {
     _count: User_detailsCountAggregateOutputType | null
-    _avg: User_detailsAvgAggregateOutputType | null
-    _sum: User_detailsSumAggregateOutputType | null
     _min: User_detailsMinAggregateOutputType | null
     _max: User_detailsMaxAggregateOutputType | null
   }
 
-  export type User_detailsAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type User_detailsSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type User_detailsMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     email: string | null
     password: string | null
     frist_name: string | null
@@ -1605,7 +1595,7 @@ export namespace Prisma {
   }
 
   export type User_detailsMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     email: string | null
     password: string | null
     frist_name: string | null
@@ -1633,14 +1623,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type User_detailsAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type User_detailsSumAggregateInputType = {
-    id?: true
-  }
 
   export type User_detailsMinAggregateInputType = {
     id?: true
@@ -1723,18 +1705,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: User_detailsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: User_detailsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: User_detailsMinAggregateInputType
@@ -1765,14 +1735,12 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: User_detailsCountAggregateInputType | true
-    _avg?: User_detailsAvgAggregateInputType
-    _sum?: User_detailsSumAggregateInputType
     _min?: User_detailsMinAggregateInputType
     _max?: User_detailsMaxAggregateInputType
   }
 
   export type User_detailsGroupByOutputType = {
-    id: number
+    id: string
     email: string
     password: string
     frist_name: string
@@ -1784,8 +1752,6 @@ export namespace Prisma {
     peerlist_link: string
     tweeter_link: string
     _count: User_detailsCountAggregateOutputType | null
-    _avg: User_detailsAvgAggregateOutputType | null
-    _sum: User_detailsSumAggregateOutputType | null
     _min: User_detailsMinAggregateOutputType | null
     _max: User_detailsMaxAggregateOutputType | null
   }
@@ -1888,7 +1854,7 @@ export namespace Prisma {
       user_group_mapping: Prisma.$user_group_mappingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       email: string
       password: string
       frist_name: string
@@ -2327,7 +2293,7 @@ export namespace Prisma {
    * Fields of the user_details model
    */
   interface user_detailsFieldRefs {
-    readonly id: FieldRef<"user_details", 'Int'>
+    readonly id: FieldRef<"user_details", 'String'>
     readonly email: FieldRef<"user_details", 'String'>
     readonly password: FieldRef<"user_details", 'String'>
     readonly frist_name: FieldRef<"user_details", 'String'>
@@ -2870,38 +2836,26 @@ export namespace Prisma {
 
   export type AggregateGroup_details = {
     _count: Group_detailsCountAggregateOutputType | null
-    _avg: Group_detailsAvgAggregateOutputType | null
-    _sum: Group_detailsSumAggregateOutputType | null
     _min: Group_detailsMinAggregateOutputType | null
     _max: Group_detailsMaxAggregateOutputType | null
   }
 
-  export type Group_detailsAvgAggregateOutputType = {
-    id: number | null
-    admin_id: number | null
-  }
-
-  export type Group_detailsSumAggregateOutputType = {
-    id: number | null
-    admin_id: number | null
-  }
-
   export type Group_detailsMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     group_name: string | null
     group_desc: string | null
     is_published: boolean | null
-    admin_id: number | null
+    admin_id: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type Group_detailsMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     group_name: string | null
     group_desc: string | null
     is_published: boolean | null
-    admin_id: number | null
+    admin_id: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2917,16 +2871,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Group_detailsAvgAggregateInputType = {
-    id?: true
-    admin_id?: true
-  }
-
-  export type Group_detailsSumAggregateInputType = {
-    id?: true
-    admin_id?: true
-  }
 
   export type Group_detailsMinAggregateInputType = {
     id?: true
@@ -2997,18 +2941,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Group_detailsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Group_detailsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Group_detailsMinAggregateInputType
@@ -3039,23 +2971,19 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Group_detailsCountAggregateInputType | true
-    _avg?: Group_detailsAvgAggregateInputType
-    _sum?: Group_detailsSumAggregateInputType
     _min?: Group_detailsMinAggregateInputType
     _max?: Group_detailsMaxAggregateInputType
   }
 
   export type Group_detailsGroupByOutputType = {
-    id: number
+    id: string
     group_name: string
     group_desc: string
     is_published: boolean
-    admin_id: number
+    admin_id: string
     createdAt: Date
     updatedAt: Date
     _count: Group_detailsCountAggregateOutputType | null
-    _avg: Group_detailsAvgAggregateOutputType | null
-    _sum: Group_detailsSumAggregateOutputType | null
     _min: Group_detailsMinAggregateOutputType | null
     _max: Group_detailsMaxAggregateOutputType | null
   }
@@ -3142,11 +3070,11 @@ export namespace Prisma {
       user_group_mapping: Prisma.$user_group_mappingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       group_name: string
       group_desc: string
       is_published: boolean
-      admin_id: number
+      admin_id: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["group_details"]>
@@ -3575,11 +3503,11 @@ export namespace Prisma {
    * Fields of the group_details model
    */
   interface group_detailsFieldRefs {
-    readonly id: FieldRef<"group_details", 'Int'>
+    readonly id: FieldRef<"group_details", 'String'>
     readonly group_name: FieldRef<"group_details", 'String'>
     readonly group_desc: FieldRef<"group_details", 'String'>
     readonly is_published: FieldRef<"group_details", 'Boolean'>
-    readonly admin_id: FieldRef<"group_details", 'Int'>
+    readonly admin_id: FieldRef<"group_details", 'String'>
     readonly createdAt: FieldRef<"group_details", 'DateTime'>
     readonly updatedAt: FieldRef<"group_details", 'DateTime'>
   }
@@ -4050,34 +3978,20 @@ export namespace Prisma {
 
   export type AggregateUser_cohort_mapping = {
     _count: User_cohort_mappingCountAggregateOutputType | null
-    _avg: User_cohort_mappingAvgAggregateOutputType | null
-    _sum: User_cohort_mappingSumAggregateOutputType | null
     _min: User_cohort_mappingMinAggregateOutputType | null
     _max: User_cohort_mappingMaxAggregateOutputType | null
   }
 
-  export type User_cohort_mappingAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-    cohort_id: number | null
-  }
-
-  export type User_cohort_mappingSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-    cohort_id: number | null
-  }
-
   export type User_cohort_mappingMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-    cohort_id: number | null
+    id: string | null
+    user_id: string | null
+    cohort_id: string | null
   }
 
   export type User_cohort_mappingMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-    cohort_id: number | null
+    id: string | null
+    user_id: string | null
+    cohort_id: string | null
   }
 
   export type User_cohort_mappingCountAggregateOutputType = {
@@ -4087,18 +4001,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type User_cohort_mappingAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-    cohort_id?: true
-  }
-
-  export type User_cohort_mappingSumAggregateInputType = {
-    id?: true
-    user_id?: true
-    cohort_id?: true
-  }
 
   export type User_cohort_mappingMinAggregateInputType = {
     id?: true
@@ -4157,18 +4059,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: User_cohort_mappingAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: User_cohort_mappingSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: User_cohort_mappingMinAggregateInputType
@@ -4199,19 +4089,15 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: User_cohort_mappingCountAggregateInputType | true
-    _avg?: User_cohort_mappingAvgAggregateInputType
-    _sum?: User_cohort_mappingSumAggregateInputType
     _min?: User_cohort_mappingMinAggregateInputType
     _max?: User_cohort_mappingMaxAggregateInputType
   }
 
   export type User_cohort_mappingGroupByOutputType = {
-    id: number
-    user_id: number
-    cohort_id: number
+    id: string
+    user_id: string
+    cohort_id: string
     _count: User_cohort_mappingCountAggregateOutputType | null
-    _avg: User_cohort_mappingAvgAggregateOutputType | null
-    _sum: User_cohort_mappingSumAggregateOutputType | null
     _min: User_cohort_mappingMinAggregateOutputType | null
     _max: User_cohort_mappingMaxAggregateOutputType | null
   }
@@ -4281,9 +4167,9 @@ export namespace Prisma {
       user: Prisma.$user_detailsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number
-      cohort_id: number
+      id: string
+      user_id: string
+      cohort_id: string
     }, ExtArgs["result"]["user_cohort_mapping"]>
     composites: {}
   }
@@ -4709,9 +4595,9 @@ export namespace Prisma {
    * Fields of the user_cohort_mapping model
    */
   interface user_cohort_mappingFieldRefs {
-    readonly id: FieldRef<"user_cohort_mapping", 'Int'>
-    readonly user_id: FieldRef<"user_cohort_mapping", 'Int'>
-    readonly cohort_id: FieldRef<"user_cohort_mapping", 'Int'>
+    readonly id: FieldRef<"user_cohort_mapping", 'String'>
+    readonly user_id: FieldRef<"user_cohort_mapping", 'String'>
+    readonly cohort_id: FieldRef<"user_cohort_mapping", 'String'>
   }
     
 
@@ -5132,27 +5018,17 @@ export namespace Prisma {
 
   export type AggregateCohort_details = {
     _count: Cohort_detailsCountAggregateOutputType | null
-    _avg: Cohort_detailsAvgAggregateOutputType | null
-    _sum: Cohort_detailsSumAggregateOutputType | null
     _min: Cohort_detailsMinAggregateOutputType | null
     _max: Cohort_detailsMaxAggregateOutputType | null
   }
 
-  export type Cohort_detailsAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Cohort_detailsSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type Cohort_detailsMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     cohort_name: string | null
   }
 
   export type Cohort_detailsMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     cohort_name: string | null
   }
 
@@ -5162,14 +5038,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Cohort_detailsAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Cohort_detailsSumAggregateInputType = {
-    id?: true
-  }
 
   export type Cohort_detailsMinAggregateInputType = {
     id?: true
@@ -5225,18 +5093,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Cohort_detailsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Cohort_detailsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Cohort_detailsMinAggregateInputType
@@ -5267,18 +5123,14 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Cohort_detailsCountAggregateInputType | true
-    _avg?: Cohort_detailsAvgAggregateInputType
-    _sum?: Cohort_detailsSumAggregateInputType
     _min?: Cohort_detailsMinAggregateInputType
     _max?: Cohort_detailsMaxAggregateInputType
   }
 
   export type Cohort_detailsGroupByOutputType = {
-    id: number
+    id: string
     cohort_name: string
     _count: Cohort_detailsCountAggregateOutputType | null
-    _avg: Cohort_detailsAvgAggregateOutputType | null
-    _sum: Cohort_detailsSumAggregateOutputType | null
     _min: Cohort_detailsMinAggregateOutputType | null
     _max: Cohort_detailsMaxAggregateOutputType | null
   }
@@ -5333,7 +5185,7 @@ export namespace Prisma {
       userCohorts: Prisma.$user_cohort_mappingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       cohort_name: string
     }, ExtArgs["result"]["cohort_details"]>
     composites: {}
@@ -5759,7 +5611,7 @@ export namespace Prisma {
    * Fields of the cohort_details model
    */
   interface cohort_detailsFieldRefs {
-    readonly id: FieldRef<"cohort_details", 'Int'>
+    readonly id: FieldRef<"cohort_details", 'String'>
     readonly cohort_name: FieldRef<"cohort_details", 'String'>
   }
     
@@ -6197,28 +6049,14 @@ export namespace Prisma {
 
   export type AggregateGroup_joining_request_details = {
     _count: Group_joining_request_detailsCountAggregateOutputType | null
-    _avg: Group_joining_request_detailsAvgAggregateOutputType | null
-    _sum: Group_joining_request_detailsSumAggregateOutputType | null
     _min: Group_joining_request_detailsMinAggregateOutputType | null
     _max: Group_joining_request_detailsMaxAggregateOutputType | null
   }
 
-  export type Group_joining_request_detailsAvgAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
-  }
-
-  export type Group_joining_request_detailsSumAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
-  }
-
   export type Group_joining_request_detailsMinAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
+    id: string | null
+    group_id: string | null
+    user_id: string | null
     request_note_by_user: string | null
     rejection_remark: string | null
     requested_on: Date | null
@@ -6226,9 +6064,9 @@ export namespace Prisma {
   }
 
   export type Group_joining_request_detailsMaxAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
+    id: string | null
+    group_id: string | null
+    user_id: string | null
     request_note_by_user: string | null
     rejection_remark: string | null
     requested_on: Date | null
@@ -6246,18 +6084,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Group_joining_request_detailsAvgAggregateInputType = {
-    id?: true
-    group_id?: true
-    user_id?: true
-  }
-
-  export type Group_joining_request_detailsSumAggregateInputType = {
-    id?: true
-    group_id?: true
-    user_id?: true
-  }
 
   export type Group_joining_request_detailsMinAggregateInputType = {
     id?: true
@@ -6328,18 +6154,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Group_joining_request_detailsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Group_joining_request_detailsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Group_joining_request_detailsMinAggregateInputType
@@ -6370,23 +6184,19 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Group_joining_request_detailsCountAggregateInputType | true
-    _avg?: Group_joining_request_detailsAvgAggregateInputType
-    _sum?: Group_joining_request_detailsSumAggregateInputType
     _min?: Group_joining_request_detailsMinAggregateInputType
     _max?: Group_joining_request_detailsMaxAggregateInputType
   }
 
   export type Group_joining_request_detailsGroupByOutputType = {
-    id: number
-    group_id: number
-    user_id: number
+    id: string
+    group_id: string
+    user_id: string
     request_note_by_user: string | null
     rejection_remark: string | null
     requested_on: Date | null
     responded_on: Date | null
     _count: Group_joining_request_detailsCountAggregateOutputType | null
-    _avg: Group_joining_request_detailsAvgAggregateOutputType | null
-    _sum: Group_joining_request_detailsSumAggregateOutputType | null
     _min: Group_joining_request_detailsMinAggregateOutputType | null
     _max: Group_joining_request_detailsMaxAggregateOutputType | null
   }
@@ -6472,9 +6282,9 @@ export namespace Prisma {
       user: Prisma.$user_detailsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      group_id: number
-      user_id: number
+      id: string
+      group_id: string
+      user_id: string
       request_note_by_user: string | null
       rejection_remark: string | null
       requested_on: Date | null
@@ -6904,9 +6714,9 @@ export namespace Prisma {
    * Fields of the group_joining_request_details model
    */
   interface group_joining_request_detailsFieldRefs {
-    readonly id: FieldRef<"group_joining_request_details", 'Int'>
-    readonly group_id: FieldRef<"group_joining_request_details", 'Int'>
-    readonly user_id: FieldRef<"group_joining_request_details", 'Int'>
+    readonly id: FieldRef<"group_joining_request_details", 'String'>
+    readonly group_id: FieldRef<"group_joining_request_details", 'String'>
+    readonly user_id: FieldRef<"group_joining_request_details", 'String'>
     readonly request_note_by_user: FieldRef<"group_joining_request_details", 'String'>
     readonly rejection_remark: FieldRef<"group_joining_request_details", 'String'>
     readonly requested_on: FieldRef<"group_joining_request_details", 'DateTime'>
@@ -7331,36 +7141,24 @@ export namespace Prisma {
 
   export type AggregateNotice_board_details = {
     _count: Notice_board_detailsCountAggregateOutputType | null
-    _avg: Notice_board_detailsAvgAggregateOutputType | null
-    _sum: Notice_board_detailsSumAggregateOutputType | null
     _min: Notice_board_detailsMinAggregateOutputType | null
     _max: Notice_board_detailsMaxAggregateOutputType | null
   }
 
-  export type Notice_board_detailsAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
-  export type Notice_board_detailsSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
   export type Notice_board_detailsMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     board_text: string | null
     group_id: string | null
-    user_id: number | null
+    user_id: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type Notice_board_detailsMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     board_text: string | null
     group_id: string | null
-    user_id: number | null
+    user_id: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7375,16 +7173,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Notice_board_detailsAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
-  export type Notice_board_detailsSumAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
 
   export type Notice_board_detailsMinAggregateInputType = {
     id?: true
@@ -7452,18 +7240,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Notice_board_detailsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Notice_board_detailsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Notice_board_detailsMinAggregateInputType
@@ -7494,22 +7270,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Notice_board_detailsCountAggregateInputType | true
-    _avg?: Notice_board_detailsAvgAggregateInputType
-    _sum?: Notice_board_detailsSumAggregateInputType
     _min?: Notice_board_detailsMinAggregateInputType
     _max?: Notice_board_detailsMaxAggregateInputType
   }
 
   export type Notice_board_detailsGroupByOutputType = {
-    id: number
+    id: string
     board_text: string | null
     group_id: string
-    user_id: number
+    user_id: string
     createdAt: Date
     updatedAt: Date
     _count: Notice_board_detailsCountAggregateOutputType | null
-    _avg: Notice_board_detailsAvgAggregateOutputType | null
-    _sum: Notice_board_detailsSumAggregateOutputType | null
     _min: Notice_board_detailsMinAggregateOutputType | null
     _max: Notice_board_detailsMaxAggregateOutputType | null
   }
@@ -7584,10 +7356,10 @@ export namespace Prisma {
       handled_by: Prisma.$user_detailsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       board_text: string | null
       group_id: string
-      user_id: number
+      user_id: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["notice_board_details"]>
@@ -8014,10 +7786,10 @@ export namespace Prisma {
    * Fields of the notice_board_details model
    */
   interface notice_board_detailsFieldRefs {
-    readonly id: FieldRef<"notice_board_details", 'Int'>
+    readonly id: FieldRef<"notice_board_details", 'String'>
     readonly board_text: FieldRef<"notice_board_details", 'String'>
     readonly group_id: FieldRef<"notice_board_details", 'String'>
-    readonly user_id: FieldRef<"notice_board_details", 'Int'>
+    readonly user_id: FieldRef<"notice_board_details", 'String'>
     readonly createdAt: FieldRef<"notice_board_details", 'DateTime'>
     readonly updatedAt: FieldRef<"notice_board_details", 'DateTime'>
   }
@@ -8440,28 +8212,14 @@ export namespace Prisma {
 
   export type AggregateUser_group_mapping = {
     _count: User_group_mappingCountAggregateOutputType | null
-    _avg: User_group_mappingAvgAggregateOutputType | null
-    _sum: User_group_mappingSumAggregateOutputType | null
     _min: User_group_mappingMinAggregateOutputType | null
     _max: User_group_mappingMaxAggregateOutputType | null
   }
 
-  export type User_group_mappingAvgAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
-  }
-
-  export type User_group_mappingSumAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
-  }
-
   export type User_group_mappingMinAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
+    id: string | null
+    group_id: string | null
+    user_id: string | null
     createdAt: Date | null
     updatedAt: Date | null
     joining_date: Date | null
@@ -8473,9 +8231,9 @@ export namespace Prisma {
   }
 
   export type User_group_mappingMaxAggregateOutputType = {
-    id: number | null
-    group_id: number | null
-    user_id: number | null
+    id: string | null
+    group_id: string | null
+    user_id: string | null
     createdAt: Date | null
     updatedAt: Date | null
     joining_date: Date | null
@@ -8501,18 +8259,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type User_group_mappingAvgAggregateInputType = {
-    id?: true
-    group_id?: true
-    user_id?: true
-  }
-
-  export type User_group_mappingSumAggregateInputType = {
-    id?: true
-    group_id?: true
-    user_id?: true
-  }
 
   export type User_group_mappingMinAggregateInputType = {
     id?: true
@@ -8595,18 +8341,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: User_group_mappingAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: User_group_mappingSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: User_group_mappingMinAggregateInputType
@@ -8637,16 +8371,14 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: User_group_mappingCountAggregateInputType | true
-    _avg?: User_group_mappingAvgAggregateInputType
-    _sum?: User_group_mappingSumAggregateInputType
     _min?: User_group_mappingMinAggregateInputType
     _max?: User_group_mappingMaxAggregateInputType
   }
 
   export type User_group_mappingGroupByOutputType = {
-    id: number
-    group_id: number
-    user_id: number
+    id: string
+    group_id: string
+    user_id: string
     createdAt: Date
     updatedAt: Date
     joining_date: Date | null
@@ -8656,8 +8388,6 @@ export namespace Prisma {
     removed_date: Date | null
     is_active_member: boolean | null
     _count: User_group_mappingCountAggregateOutputType | null
-    _avg: User_group_mappingAvgAggregateOutputType | null
-    _sum: User_group_mappingSumAggregateOutputType | null
     _min: User_group_mappingMinAggregateOutputType | null
     _max: User_group_mappingMaxAggregateOutputType | null
   }
@@ -8759,9 +8489,9 @@ export namespace Prisma {
       user_details: Prisma.$user_detailsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      group_id: number
-      user_id: number
+      id: string
+      group_id: string
+      user_id: string
       createdAt: Date
       updatedAt: Date
       joining_date: Date | null
@@ -9195,9 +8925,9 @@ export namespace Prisma {
    * Fields of the user_group_mapping model
    */
   interface user_group_mappingFieldRefs {
-    readonly id: FieldRef<"user_group_mapping", 'Int'>
-    readonly group_id: FieldRef<"user_group_mapping", 'Int'>
-    readonly user_id: FieldRef<"user_group_mapping", 'Int'>
+    readonly id: FieldRef<"user_group_mapping", 'String'>
+    readonly group_id: FieldRef<"user_group_mapping", 'String'>
+    readonly user_id: FieldRef<"user_group_mapping", 'String'>
     readonly createdAt: FieldRef<"user_group_mapping", 'DateTime'>
     readonly updatedAt: FieldRef<"user_group_mapping", 'DateTime'>
     readonly joining_date: FieldRef<"user_group_mapping", 'DateTime'>
@@ -9753,20 +9483,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -9816,16 +9532,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Float'
+   * Reference to a field of type 'Int'
    */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
   /**
-   * Reference to a field of type 'Float[]'
+   * Reference to a field of type 'Int[]'
    */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
   /**
    * Deep Input Types
@@ -9836,7 +9552,7 @@ export namespace Prisma {
     AND?: user_detailsWhereInput | user_detailsWhereInput[]
     OR?: user_detailsWhereInput[]
     NOT?: user_detailsWhereInput | user_detailsWhereInput[]
-    id?: IntFilter<"user_details"> | number
+    id?: StringFilter<"user_details"> | string
     email?: StringFilter<"user_details"> | string
     password?: StringFilter<"user_details"> | string
     frist_name?: StringFilter<"user_details"> | string
@@ -9874,7 +9590,7 @@ export namespace Prisma {
   }
 
   export type user_detailsWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     email?: string
     AND?: user_detailsWhereInput | user_detailsWhereInput[]
     OR?: user_detailsWhereInput[]
@@ -9908,17 +9624,15 @@ export namespace Prisma {
     peerlist_link?: SortOrder
     tweeter_link?: SortOrder
     _count?: user_detailsCountOrderByAggregateInput
-    _avg?: user_detailsAvgOrderByAggregateInput
     _max?: user_detailsMaxOrderByAggregateInput
     _min?: user_detailsMinOrderByAggregateInput
-    _sum?: user_detailsSumOrderByAggregateInput
   }
 
   export type user_detailsScalarWhereWithAggregatesInput = {
     AND?: user_detailsScalarWhereWithAggregatesInput | user_detailsScalarWhereWithAggregatesInput[]
     OR?: user_detailsScalarWhereWithAggregatesInput[]
     NOT?: user_detailsScalarWhereWithAggregatesInput | user_detailsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user_details"> | number
+    id?: StringWithAggregatesFilter<"user_details"> | string
     email?: StringWithAggregatesFilter<"user_details"> | string
     password?: StringWithAggregatesFilter<"user_details"> | string
     frist_name?: StringWithAggregatesFilter<"user_details"> | string
@@ -9935,11 +9649,11 @@ export namespace Prisma {
     AND?: group_detailsWhereInput | group_detailsWhereInput[]
     OR?: group_detailsWhereInput[]
     NOT?: group_detailsWhereInput | group_detailsWhereInput[]
-    id?: IntFilter<"group_details"> | number
+    id?: StringFilter<"group_details"> | string
     group_name?: StringFilter<"group_details"> | string
     group_desc?: StringFilter<"group_details"> | string
     is_published?: BoolFilter<"group_details"> | boolean
-    admin_id?: IntFilter<"group_details"> | number
+    admin_id?: StringFilter<"group_details"> | string
     createdAt?: DateTimeFilter<"group_details"> | Date | string
     updatedAt?: DateTimeFilter<"group_details"> | Date | string
     created_by?: XOR<User_detailsScalarRelationFilter, user_detailsWhereInput>
@@ -9961,20 +9675,20 @@ export namespace Prisma {
   }
 
   export type group_detailsWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    group_name?: string
+    id?: string
     AND?: group_detailsWhereInput | group_detailsWhereInput[]
     OR?: group_detailsWhereInput[]
     NOT?: group_detailsWhereInput | group_detailsWhereInput[]
+    group_name?: StringFilter<"group_details"> | string
     group_desc?: StringFilter<"group_details"> | string
     is_published?: BoolFilter<"group_details"> | boolean
-    admin_id?: IntFilter<"group_details"> | number
+    admin_id?: StringFilter<"group_details"> | string
     createdAt?: DateTimeFilter<"group_details"> | Date | string
     updatedAt?: DateTimeFilter<"group_details"> | Date | string
     created_by?: XOR<User_detailsScalarRelationFilter, user_detailsWhereInput>
     group_joining_request_details?: Group_joining_request_detailsListRelationFilter
     user_group_mapping?: User_group_mappingListRelationFilter
-  }, "id" | "group_name">
+  }, "id">
 
   export type group_detailsOrderByWithAggregationInput = {
     id?: SortOrder
@@ -9985,21 +9699,19 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: group_detailsCountOrderByAggregateInput
-    _avg?: group_detailsAvgOrderByAggregateInput
     _max?: group_detailsMaxOrderByAggregateInput
     _min?: group_detailsMinOrderByAggregateInput
-    _sum?: group_detailsSumOrderByAggregateInput
   }
 
   export type group_detailsScalarWhereWithAggregatesInput = {
     AND?: group_detailsScalarWhereWithAggregatesInput | group_detailsScalarWhereWithAggregatesInput[]
     OR?: group_detailsScalarWhereWithAggregatesInput[]
     NOT?: group_detailsScalarWhereWithAggregatesInput | group_detailsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"group_details"> | number
+    id?: StringWithAggregatesFilter<"group_details"> | string
     group_name?: StringWithAggregatesFilter<"group_details"> | string
     group_desc?: StringWithAggregatesFilter<"group_details"> | string
     is_published?: BoolWithAggregatesFilter<"group_details"> | boolean
-    admin_id?: IntWithAggregatesFilter<"group_details"> | number
+    admin_id?: StringWithAggregatesFilter<"group_details"> | string
     createdAt?: DateTimeWithAggregatesFilter<"group_details"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"group_details"> | Date | string
   }
@@ -10008,9 +9720,9 @@ export namespace Prisma {
     AND?: user_cohort_mappingWhereInput | user_cohort_mappingWhereInput[]
     OR?: user_cohort_mappingWhereInput[]
     NOT?: user_cohort_mappingWhereInput | user_cohort_mappingWhereInput[]
-    id?: IntFilter<"user_cohort_mapping"> | number
-    user_id?: IntFilter<"user_cohort_mapping"> | number
-    cohort_id?: IntFilter<"user_cohort_mapping"> | number
+    id?: StringFilter<"user_cohort_mapping"> | string
+    user_id?: StringFilter<"user_cohort_mapping"> | string
+    cohort_id?: StringFilter<"user_cohort_mapping"> | string
     cohort?: XOR<Cohort_detailsScalarRelationFilter, cohort_detailsWhereInput>
     user?: XOR<User_detailsScalarRelationFilter, user_detailsWhereInput>
   }
@@ -10024,12 +9736,12 @@ export namespace Prisma {
   }
 
   export type user_cohort_mappingWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: user_cohort_mappingWhereInput | user_cohort_mappingWhereInput[]
     OR?: user_cohort_mappingWhereInput[]
     NOT?: user_cohort_mappingWhereInput | user_cohort_mappingWhereInput[]
-    user_id?: IntFilter<"user_cohort_mapping"> | number
-    cohort_id?: IntFilter<"user_cohort_mapping"> | number
+    user_id?: StringFilter<"user_cohort_mapping"> | string
+    cohort_id?: StringFilter<"user_cohort_mapping"> | string
     cohort?: XOR<Cohort_detailsScalarRelationFilter, cohort_detailsWhereInput>
     user?: XOR<User_detailsScalarRelationFilter, user_detailsWhereInput>
   }, "id">
@@ -10039,26 +9751,24 @@ export namespace Prisma {
     user_id?: SortOrder
     cohort_id?: SortOrder
     _count?: user_cohort_mappingCountOrderByAggregateInput
-    _avg?: user_cohort_mappingAvgOrderByAggregateInput
     _max?: user_cohort_mappingMaxOrderByAggregateInput
     _min?: user_cohort_mappingMinOrderByAggregateInput
-    _sum?: user_cohort_mappingSumOrderByAggregateInput
   }
 
   export type user_cohort_mappingScalarWhereWithAggregatesInput = {
     AND?: user_cohort_mappingScalarWhereWithAggregatesInput | user_cohort_mappingScalarWhereWithAggregatesInput[]
     OR?: user_cohort_mappingScalarWhereWithAggregatesInput[]
     NOT?: user_cohort_mappingScalarWhereWithAggregatesInput | user_cohort_mappingScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user_cohort_mapping"> | number
-    user_id?: IntWithAggregatesFilter<"user_cohort_mapping"> | number
-    cohort_id?: IntWithAggregatesFilter<"user_cohort_mapping"> | number
+    id?: StringWithAggregatesFilter<"user_cohort_mapping"> | string
+    user_id?: StringWithAggregatesFilter<"user_cohort_mapping"> | string
+    cohort_id?: StringWithAggregatesFilter<"user_cohort_mapping"> | string
   }
 
   export type cohort_detailsWhereInput = {
     AND?: cohort_detailsWhereInput | cohort_detailsWhereInput[]
     OR?: cohort_detailsWhereInput[]
     NOT?: cohort_detailsWhereInput | cohort_detailsWhereInput[]
-    id?: IntFilter<"cohort_details"> | number
+    id?: StringFilter<"cohort_details"> | string
     cohort_name?: StringFilter<"cohort_details"> | string
     userCohorts?: User_cohort_mappingListRelationFilter
   }
@@ -10070,7 +9780,7 @@ export namespace Prisma {
   }
 
   export type cohort_detailsWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     cohort_name?: string
     AND?: cohort_detailsWhereInput | cohort_detailsWhereInput[]
     OR?: cohort_detailsWhereInput[]
@@ -10082,17 +9792,15 @@ export namespace Prisma {
     id?: SortOrder
     cohort_name?: SortOrder
     _count?: cohort_detailsCountOrderByAggregateInput
-    _avg?: cohort_detailsAvgOrderByAggregateInput
     _max?: cohort_detailsMaxOrderByAggregateInput
     _min?: cohort_detailsMinOrderByAggregateInput
-    _sum?: cohort_detailsSumOrderByAggregateInput
   }
 
   export type cohort_detailsScalarWhereWithAggregatesInput = {
     AND?: cohort_detailsScalarWhereWithAggregatesInput | cohort_detailsScalarWhereWithAggregatesInput[]
     OR?: cohort_detailsScalarWhereWithAggregatesInput[]
     NOT?: cohort_detailsScalarWhereWithAggregatesInput | cohort_detailsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"cohort_details"> | number
+    id?: StringWithAggregatesFilter<"cohort_details"> | string
     cohort_name?: StringWithAggregatesFilter<"cohort_details"> | string
   }
 
@@ -10100,9 +9808,9 @@ export namespace Prisma {
     AND?: group_joining_request_detailsWhereInput | group_joining_request_detailsWhereInput[]
     OR?: group_joining_request_detailsWhereInput[]
     NOT?: group_joining_request_detailsWhereInput | group_joining_request_detailsWhereInput[]
-    id?: IntFilter<"group_joining_request_details"> | number
-    group_id?: IntFilter<"group_joining_request_details"> | number
-    user_id?: IntFilter<"group_joining_request_details"> | number
+    id?: StringFilter<"group_joining_request_details"> | string
+    group_id?: StringFilter<"group_joining_request_details"> | string
+    user_id?: StringFilter<"group_joining_request_details"> | string
     request_note_by_user?: StringNullableFilter<"group_joining_request_details"> | string | null
     rejection_remark?: StringNullableFilter<"group_joining_request_details"> | string | null
     requested_on?: DateTimeNullableFilter<"group_joining_request_details"> | Date | string | null
@@ -10124,12 +9832,12 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: group_joining_request_detailsWhereInput | group_joining_request_detailsWhereInput[]
     OR?: group_joining_request_detailsWhereInput[]
     NOT?: group_joining_request_detailsWhereInput | group_joining_request_detailsWhereInput[]
-    group_id?: IntFilter<"group_joining_request_details"> | number
-    user_id?: IntFilter<"group_joining_request_details"> | number
+    group_id?: StringFilter<"group_joining_request_details"> | string
+    user_id?: StringFilter<"group_joining_request_details"> | string
     request_note_by_user?: StringNullableFilter<"group_joining_request_details"> | string | null
     rejection_remark?: StringNullableFilter<"group_joining_request_details"> | string | null
     requested_on?: DateTimeNullableFilter<"group_joining_request_details"> | Date | string | null
@@ -10147,19 +9855,17 @@ export namespace Prisma {
     requested_on?: SortOrderInput | SortOrder
     responded_on?: SortOrderInput | SortOrder
     _count?: group_joining_request_detailsCountOrderByAggregateInput
-    _avg?: group_joining_request_detailsAvgOrderByAggregateInput
     _max?: group_joining_request_detailsMaxOrderByAggregateInput
     _min?: group_joining_request_detailsMinOrderByAggregateInput
-    _sum?: group_joining_request_detailsSumOrderByAggregateInput
   }
 
   export type group_joining_request_detailsScalarWhereWithAggregatesInput = {
     AND?: group_joining_request_detailsScalarWhereWithAggregatesInput | group_joining_request_detailsScalarWhereWithAggregatesInput[]
     OR?: group_joining_request_detailsScalarWhereWithAggregatesInput[]
     NOT?: group_joining_request_detailsScalarWhereWithAggregatesInput | group_joining_request_detailsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"group_joining_request_details"> | number
-    group_id?: IntWithAggregatesFilter<"group_joining_request_details"> | number
-    user_id?: IntWithAggregatesFilter<"group_joining_request_details"> | number
+    id?: StringWithAggregatesFilter<"group_joining_request_details"> | string
+    group_id?: StringWithAggregatesFilter<"group_joining_request_details"> | string
+    user_id?: StringWithAggregatesFilter<"group_joining_request_details"> | string
     request_note_by_user?: StringNullableWithAggregatesFilter<"group_joining_request_details"> | string | null
     rejection_remark?: StringNullableWithAggregatesFilter<"group_joining_request_details"> | string | null
     requested_on?: DateTimeNullableWithAggregatesFilter<"group_joining_request_details"> | Date | string | null
@@ -10170,10 +9876,10 @@ export namespace Prisma {
     AND?: notice_board_detailsWhereInput | notice_board_detailsWhereInput[]
     OR?: notice_board_detailsWhereInput[]
     NOT?: notice_board_detailsWhereInput | notice_board_detailsWhereInput[]
-    id?: IntFilter<"notice_board_details"> | number
+    id?: StringFilter<"notice_board_details"> | string
     board_text?: StringNullableFilter<"notice_board_details"> | string | null
     group_id?: StringFilter<"notice_board_details"> | string
-    user_id?: IntFilter<"notice_board_details"> | number
+    user_id?: StringFilter<"notice_board_details"> | string
     createdAt?: DateTimeFilter<"notice_board_details"> | Date | string
     updatedAt?: DateTimeFilter<"notice_board_details"> | Date | string
     handled_by?: XOR<User_detailsScalarRelationFilter, user_detailsWhereInput>
@@ -10190,13 +9896,13 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: notice_board_detailsWhereInput | notice_board_detailsWhereInput[]
     OR?: notice_board_detailsWhereInput[]
     NOT?: notice_board_detailsWhereInput | notice_board_detailsWhereInput[]
     board_text?: StringNullableFilter<"notice_board_details"> | string | null
     group_id?: StringFilter<"notice_board_details"> | string
-    user_id?: IntFilter<"notice_board_details"> | number
+    user_id?: StringFilter<"notice_board_details"> | string
     createdAt?: DateTimeFilter<"notice_board_details"> | Date | string
     updatedAt?: DateTimeFilter<"notice_board_details"> | Date | string
     handled_by?: XOR<User_detailsScalarRelationFilter, user_detailsWhereInput>
@@ -10210,20 +9916,18 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: notice_board_detailsCountOrderByAggregateInput
-    _avg?: notice_board_detailsAvgOrderByAggregateInput
     _max?: notice_board_detailsMaxOrderByAggregateInput
     _min?: notice_board_detailsMinOrderByAggregateInput
-    _sum?: notice_board_detailsSumOrderByAggregateInput
   }
 
   export type notice_board_detailsScalarWhereWithAggregatesInput = {
     AND?: notice_board_detailsScalarWhereWithAggregatesInput | notice_board_detailsScalarWhereWithAggregatesInput[]
     OR?: notice_board_detailsScalarWhereWithAggregatesInput[]
     NOT?: notice_board_detailsScalarWhereWithAggregatesInput | notice_board_detailsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"notice_board_details"> | number
+    id?: StringWithAggregatesFilter<"notice_board_details"> | string
     board_text?: StringNullableWithAggregatesFilter<"notice_board_details"> | string | null
     group_id?: StringWithAggregatesFilter<"notice_board_details"> | string
-    user_id?: IntWithAggregatesFilter<"notice_board_details"> | number
+    user_id?: StringWithAggregatesFilter<"notice_board_details"> | string
     createdAt?: DateTimeWithAggregatesFilter<"notice_board_details"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"notice_board_details"> | Date | string
   }
@@ -10232,9 +9936,9 @@ export namespace Prisma {
     AND?: user_group_mappingWhereInput | user_group_mappingWhereInput[]
     OR?: user_group_mappingWhereInput[]
     NOT?: user_group_mappingWhereInput | user_group_mappingWhereInput[]
-    id?: IntFilter<"user_group_mapping"> | number
-    group_id?: IntFilter<"user_group_mapping"> | number
-    user_id?: IntFilter<"user_group_mapping"> | number
+    id?: StringFilter<"user_group_mapping"> | string
+    group_id?: StringFilter<"user_group_mapping"> | string
+    user_id?: StringFilter<"user_group_mapping"> | string
     createdAt?: DateTimeFilter<"user_group_mapping"> | Date | string
     updatedAt?: DateTimeFilter<"user_group_mapping"> | Date | string
     joining_date?: DateTimeNullableFilter<"user_group_mapping"> | Date | string | null
@@ -10264,12 +9968,12 @@ export namespace Prisma {
   }
 
   export type user_group_mappingWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: user_group_mappingWhereInput | user_group_mappingWhereInput[]
     OR?: user_group_mappingWhereInput[]
     NOT?: user_group_mappingWhereInput | user_group_mappingWhereInput[]
-    group_id?: IntFilter<"user_group_mapping"> | number
-    user_id?: IntFilter<"user_group_mapping"> | number
+    group_id?: StringFilter<"user_group_mapping"> | string
+    user_id?: StringFilter<"user_group_mapping"> | string
     createdAt?: DateTimeFilter<"user_group_mapping"> | Date | string
     updatedAt?: DateTimeFilter<"user_group_mapping"> | Date | string
     joining_date?: DateTimeNullableFilter<"user_group_mapping"> | Date | string | null
@@ -10295,19 +9999,17 @@ export namespace Prisma {
     removed_date?: SortOrderInput | SortOrder
     is_active_member?: SortOrderInput | SortOrder
     _count?: user_group_mappingCountOrderByAggregateInput
-    _avg?: user_group_mappingAvgOrderByAggregateInput
     _max?: user_group_mappingMaxOrderByAggregateInput
     _min?: user_group_mappingMinOrderByAggregateInput
-    _sum?: user_group_mappingSumOrderByAggregateInput
   }
 
   export type user_group_mappingScalarWhereWithAggregatesInput = {
     AND?: user_group_mappingScalarWhereWithAggregatesInput | user_group_mappingScalarWhereWithAggregatesInput[]
     OR?: user_group_mappingScalarWhereWithAggregatesInput[]
     NOT?: user_group_mappingScalarWhereWithAggregatesInput | user_group_mappingScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user_group_mapping"> | number
-    group_id?: IntWithAggregatesFilter<"user_group_mapping"> | number
-    user_id?: IntWithAggregatesFilter<"user_group_mapping"> | number
+    id?: StringWithAggregatesFilter<"user_group_mapping"> | string
+    group_id?: StringWithAggregatesFilter<"user_group_mapping"> | string
+    user_id?: StringWithAggregatesFilter<"user_group_mapping"> | string
     createdAt?: DateTimeWithAggregatesFilter<"user_group_mapping"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"user_group_mapping"> | Date | string
     joining_date?: DateTimeNullableWithAggregatesFilter<"user_group_mapping"> | Date | string | null
@@ -10319,6 +10021,7 @@ export namespace Prisma {
   }
 
   export type user_detailsCreateInput = {
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -10337,7 +10040,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedCreateInput = {
-    id?: number
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -10356,6 +10059,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -10374,7 +10078,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -10393,7 +10097,7 @@ export namespace Prisma {
   }
 
   export type user_detailsCreateManyInput = {
-    id?: number
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -10407,6 +10111,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -10420,7 +10125,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -10434,6 +10139,7 @@ export namespace Prisma {
   }
 
   export type group_detailsCreateInput = {
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
@@ -10445,11 +10151,11 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedCreateInput = {
-    id?: number
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
-    admin_id: number
+    admin_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     group_joining_request_details?: group_joining_request_detailsUncheckedCreateNestedManyWithoutGroupInput
@@ -10457,6 +10163,7 @@ export namespace Prisma {
   }
 
   export type group_detailsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
@@ -10468,11 +10175,11 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
-    admin_id?: IntFieldUpdateOperationsInput | number
+    admin_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     group_joining_request_details?: group_joining_request_detailsUncheckedUpdateManyWithoutGroupNestedInput
@@ -10480,16 +10187,17 @@ export namespace Prisma {
   }
 
   export type group_detailsCreateManyInput = {
-    id?: number
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
-    admin_id: number
+    admin_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type group_detailsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
@@ -10498,90 +10206,96 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
-    admin_id?: IntFieldUpdateOperationsInput | number
+    admin_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type user_cohort_mappingCreateInput = {
+    id?: string
     cohort: cohort_detailsCreateNestedOneWithoutUserCohortsInput
     user: user_detailsCreateNestedOneWithoutUser_cohort_mappingInput
   }
 
   export type user_cohort_mappingUncheckedCreateInput = {
-    id?: number
-    user_id: number
-    cohort_id: number
+    id?: string
+    user_id: string
+    cohort_id: string
   }
 
   export type user_cohort_mappingUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     cohort?: cohort_detailsUpdateOneRequiredWithoutUserCohortsNestedInput
     user?: user_detailsUpdateOneRequiredWithoutUser_cohort_mappingNestedInput
   }
 
   export type user_cohort_mappingUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    cohort_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    cohort_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type user_cohort_mappingCreateManyInput = {
-    id?: number
-    user_id: number
-    cohort_id: number
+    id?: string
+    user_id: string
+    cohort_id: string
   }
 
   export type user_cohort_mappingUpdateManyMutationInput = {
-
+    id?: StringFieldUpdateOperationsInput | string
   }
 
   export type user_cohort_mappingUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    cohort_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    cohort_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type cohort_detailsCreateInput = {
+    id?: string
     cohort_name: string
     userCohorts?: user_cohort_mappingCreateNestedManyWithoutCohortInput
   }
 
   export type cohort_detailsUncheckedCreateInput = {
-    id?: number
+    id?: string
     cohort_name: string
     userCohorts?: user_cohort_mappingUncheckedCreateNestedManyWithoutCohortInput
   }
 
   export type cohort_detailsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     cohort_name?: StringFieldUpdateOperationsInput | string
     userCohorts?: user_cohort_mappingUpdateManyWithoutCohortNestedInput
   }
 
   export type cohort_detailsUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     cohort_name?: StringFieldUpdateOperationsInput | string
     userCohorts?: user_cohort_mappingUncheckedUpdateManyWithoutCohortNestedInput
   }
 
   export type cohort_detailsCreateManyInput = {
-    id?: number
+    id?: string
     cohort_name: string
   }
 
   export type cohort_detailsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     cohort_name?: StringFieldUpdateOperationsInput | string
   }
 
   export type cohort_detailsUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     cohort_name?: StringFieldUpdateOperationsInput | string
   }
 
   export type group_joining_request_detailsCreateInput = {
+    id?: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -10591,9 +10305,9 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedCreateInput = {
-    id?: number
-    group_id: number
-    user_id: number
+    id?: string
+    group_id: string
+    user_id: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -10601,6 +10315,7 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10610,9 +10325,9 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10620,9 +10335,9 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsCreateManyInput = {
-    id?: number
-    group_id: number
-    user_id: number
+    id?: string
+    group_id: string
+    user_id: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -10630,6 +10345,7 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10637,9 +10353,9 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10647,6 +10363,7 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsCreateInput = {
+    id?: string
     board_text?: string | null
     group_id: string
     createdAt?: Date | string
@@ -10655,15 +10372,16 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsUncheckedCreateInput = {
-    id?: number
+    id?: string
     board_text?: string | null
     group_id: string
-    user_id: number
+    user_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type notice_board_detailsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     board_text?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10672,24 +10390,25 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     board_text?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: StringFieldUpdateOperationsInput | string
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type notice_board_detailsCreateManyInput = {
-    id?: number
+    id?: string
     board_text?: string | null
     group_id: string
-    user_id: number
+    user_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type notice_board_detailsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     board_text?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10697,15 +10416,16 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     board_text?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: StringFieldUpdateOperationsInput | string
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type user_group_mappingCreateInput = {
+    id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -10719,9 +10439,9 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedCreateInput = {
-    id?: number
-    group_id: number
-    user_id: number
+    id?: string
+    group_id: string
+    user_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -10733,6 +10453,7 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10746,9 +10467,9 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10760,9 +10481,9 @@ export namespace Prisma {
   }
 
   export type user_group_mappingCreateManyInput = {
-    id?: number
-    group_id: number
-    user_id: number
+    id?: string
+    group_id: string
+    user_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -10774,6 +10495,7 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10785,9 +10507,9 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -10796,17 +10518,6 @@ export namespace Prisma {
     removed_reason?: NullableStringFieldUpdateOperationsInput | string | null
     removed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     is_active_member?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -10915,10 +10626,6 @@ export namespace Prisma {
     tweeter_link?: SortOrder
   }
 
-  export type user_detailsAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type user_detailsMaxOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
@@ -10945,26 +10652,6 @@ export namespace Prisma {
     hashnode_link?: SortOrder
     peerlist_link?: SortOrder
     tweeter_link?: SortOrder
-  }
-
-  export type user_detailsSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -11044,11 +10731,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type group_detailsAvgOrderByAggregateInput = {
-    id?: SortOrder
-    admin_id?: SortOrder
-  }
-
   export type group_detailsMaxOrderByAggregateInput = {
     id?: SortOrder
     group_name?: SortOrder
@@ -11067,11 +10749,6 @@ export namespace Prisma {
     admin_id?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type group_detailsSumOrderByAggregateInput = {
-    id?: SortOrder
-    admin_id?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -11107,12 +10784,6 @@ export namespace Prisma {
     cohort_id?: SortOrder
   }
 
-  export type user_cohort_mappingAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    cohort_id?: SortOrder
-  }
-
   export type user_cohort_mappingMaxOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
@@ -11125,19 +10796,9 @@ export namespace Prisma {
     cohort_id?: SortOrder
   }
 
-  export type user_cohort_mappingSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    cohort_id?: SortOrder
-  }
-
   export type cohort_detailsCountOrderByAggregateInput = {
     id?: SortOrder
     cohort_name?: SortOrder
-  }
-
-  export type cohort_detailsAvgOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type cohort_detailsMaxOrderByAggregateInput = {
@@ -11148,10 +10809,6 @@ export namespace Prisma {
   export type cohort_detailsMinOrderByAggregateInput = {
     id?: SortOrder
     cohort_name?: SortOrder
-  }
-
-  export type cohort_detailsSumOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -11180,12 +10837,6 @@ export namespace Prisma {
     responded_on?: SortOrder
   }
 
-  export type group_joining_request_detailsAvgOrderByAggregateInput = {
-    id?: SortOrder
-    group_id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type group_joining_request_detailsMaxOrderByAggregateInput = {
     id?: SortOrder
     group_id?: SortOrder
@@ -11204,12 +10855,6 @@ export namespace Prisma {
     rejection_remark?: SortOrder
     requested_on?: SortOrder
     responded_on?: SortOrder
-  }
-
-  export type group_joining_request_detailsSumOrderByAggregateInput = {
-    id?: SortOrder
-    group_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -11235,11 +10880,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type notice_board_detailsAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type notice_board_detailsMaxOrderByAggregateInput = {
     id?: SortOrder
     board_text?: SortOrder
@@ -11256,11 +10896,6 @@ export namespace Prisma {
     user_id?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type notice_board_detailsSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type BoolNullableFilter<$PrismaModel = never> = {
@@ -11280,12 +10915,6 @@ export namespace Prisma {
     removed_reason?: SortOrder
     removed_date?: SortOrder
     is_active_member?: SortOrder
-  }
-
-  export type user_group_mappingAvgOrderByAggregateInput = {
-    id?: SortOrder
-    group_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type user_group_mappingMaxOrderByAggregateInput = {
@@ -11314,12 +10943,6 @@ export namespace Prisma {
     removed_reason?: SortOrder
     removed_date?: SortOrder
     is_active_member?: SortOrder
-  }
-
-  export type user_group_mappingSumOrderByAggregateInput = {
-    id?: SortOrder
-    group_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -11480,14 +11103,6 @@ export namespace Prisma {
     update?: user_group_mappingUpdateWithWhereUniqueWithoutUser_detailsInput | user_group_mappingUpdateWithWhereUniqueWithoutUser_detailsInput[]
     updateMany?: user_group_mappingUpdateManyWithWhereWithoutUser_detailsInput | user_group_mappingUpdateManyWithWhereWithoutUser_detailsInput[]
     deleteMany?: user_group_mappingScalarWhereInput | user_group_mappingScalarWhereInput[]
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type group_detailsUncheckedUpdateManyWithoutCreated_byNestedInput = {
@@ -11814,17 +11429,6 @@ export namespace Prisma {
     update?: XOR<XOR<user_detailsUpdateToOneWithWhereWithoutUser_group_mappingInput, user_detailsUpdateWithoutUser_group_mappingInput>, user_detailsUncheckedUpdateWithoutUser_group_mappingInput>
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -11860,33 +11464,6 @@ export namespace Prisma {
     not?: NestedEnumROLEFilter<$PrismaModel> | $Enums.ROLE
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -11902,6 +11479,17 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -12019,6 +11607,7 @@ export namespace Prisma {
   }
 
   export type group_detailsCreateWithoutCreated_byInput = {
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
@@ -12029,7 +11618,7 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedCreateWithoutCreated_byInput = {
-    id?: number
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
@@ -12050,6 +11639,7 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsCreateWithoutUserInput = {
+    id?: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -12058,8 +11648,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedCreateWithoutUserInput = {
-    id?: number
-    group_id: number
+    id?: string
+    group_id: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -12077,6 +11667,7 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsCreateWithoutHandled_byInput = {
+    id?: string
     board_text?: string | null
     group_id: string
     createdAt?: Date | string
@@ -12084,7 +11675,7 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsUncheckedCreateWithoutHandled_byInput = {
-    id?: number
+    id?: string
     board_text?: string | null
     group_id: string
     createdAt?: Date | string
@@ -12102,12 +11693,13 @@ export namespace Prisma {
   }
 
   export type user_cohort_mappingCreateWithoutUserInput = {
+    id?: string
     cohort: cohort_detailsCreateNestedOneWithoutUserCohortsInput
   }
 
   export type user_cohort_mappingUncheckedCreateWithoutUserInput = {
-    id?: number
-    cohort_id: number
+    id?: string
+    cohort_id: string
   }
 
   export type user_cohort_mappingCreateOrConnectWithoutUserInput = {
@@ -12121,6 +11713,7 @@ export namespace Prisma {
   }
 
   export type user_group_mappingCreateWithoutUser_detailsInput = {
+    id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -12133,8 +11726,8 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedCreateWithoutUser_detailsInput = {
-    id?: number
-    group_id: number
+    id?: string
+    group_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -12175,11 +11768,11 @@ export namespace Prisma {
     AND?: group_detailsScalarWhereInput | group_detailsScalarWhereInput[]
     OR?: group_detailsScalarWhereInput[]
     NOT?: group_detailsScalarWhereInput | group_detailsScalarWhereInput[]
-    id?: IntFilter<"group_details"> | number
+    id?: StringFilter<"group_details"> | string
     group_name?: StringFilter<"group_details"> | string
     group_desc?: StringFilter<"group_details"> | string
     is_published?: BoolFilter<"group_details"> | boolean
-    admin_id?: IntFilter<"group_details"> | number
+    admin_id?: StringFilter<"group_details"> | string
     createdAt?: DateTimeFilter<"group_details"> | Date | string
     updatedAt?: DateTimeFilter<"group_details"> | Date | string
   }
@@ -12204,9 +11797,9 @@ export namespace Prisma {
     AND?: group_joining_request_detailsScalarWhereInput | group_joining_request_detailsScalarWhereInput[]
     OR?: group_joining_request_detailsScalarWhereInput[]
     NOT?: group_joining_request_detailsScalarWhereInput | group_joining_request_detailsScalarWhereInput[]
-    id?: IntFilter<"group_joining_request_details"> | number
-    group_id?: IntFilter<"group_joining_request_details"> | number
-    user_id?: IntFilter<"group_joining_request_details"> | number
+    id?: StringFilter<"group_joining_request_details"> | string
+    group_id?: StringFilter<"group_joining_request_details"> | string
+    user_id?: StringFilter<"group_joining_request_details"> | string
     request_note_by_user?: StringNullableFilter<"group_joining_request_details"> | string | null
     rejection_remark?: StringNullableFilter<"group_joining_request_details"> | string | null
     requested_on?: DateTimeNullableFilter<"group_joining_request_details"> | Date | string | null
@@ -12233,10 +11826,10 @@ export namespace Prisma {
     AND?: notice_board_detailsScalarWhereInput | notice_board_detailsScalarWhereInput[]
     OR?: notice_board_detailsScalarWhereInput[]
     NOT?: notice_board_detailsScalarWhereInput | notice_board_detailsScalarWhereInput[]
-    id?: IntFilter<"notice_board_details"> | number
+    id?: StringFilter<"notice_board_details"> | string
     board_text?: StringNullableFilter<"notice_board_details"> | string | null
     group_id?: StringFilter<"notice_board_details"> | string
-    user_id?: IntFilter<"notice_board_details"> | number
+    user_id?: StringFilter<"notice_board_details"> | string
     createdAt?: DateTimeFilter<"notice_board_details"> | Date | string
     updatedAt?: DateTimeFilter<"notice_board_details"> | Date | string
   }
@@ -12261,9 +11854,9 @@ export namespace Prisma {
     AND?: user_cohort_mappingScalarWhereInput | user_cohort_mappingScalarWhereInput[]
     OR?: user_cohort_mappingScalarWhereInput[]
     NOT?: user_cohort_mappingScalarWhereInput | user_cohort_mappingScalarWhereInput[]
-    id?: IntFilter<"user_cohort_mapping"> | number
-    user_id?: IntFilter<"user_cohort_mapping"> | number
-    cohort_id?: IntFilter<"user_cohort_mapping"> | number
+    id?: StringFilter<"user_cohort_mapping"> | string
+    user_id?: StringFilter<"user_cohort_mapping"> | string
+    cohort_id?: StringFilter<"user_cohort_mapping"> | string
   }
 
   export type user_group_mappingUpsertWithWhereUniqueWithoutUser_detailsInput = {
@@ -12286,9 +11879,9 @@ export namespace Prisma {
     AND?: user_group_mappingScalarWhereInput | user_group_mappingScalarWhereInput[]
     OR?: user_group_mappingScalarWhereInput[]
     NOT?: user_group_mappingScalarWhereInput | user_group_mappingScalarWhereInput[]
-    id?: IntFilter<"user_group_mapping"> | number
-    group_id?: IntFilter<"user_group_mapping"> | number
-    user_id?: IntFilter<"user_group_mapping"> | number
+    id?: StringFilter<"user_group_mapping"> | string
+    group_id?: StringFilter<"user_group_mapping"> | string
+    user_id?: StringFilter<"user_group_mapping"> | string
     createdAt?: DateTimeFilter<"user_group_mapping"> | Date | string
     updatedAt?: DateTimeFilter<"user_group_mapping"> | Date | string
     joining_date?: DateTimeNullableFilter<"user_group_mapping"> | Date | string | null
@@ -12300,6 +11893,7 @@ export namespace Prisma {
   }
 
   export type user_detailsCreateWithoutGroup_detailsInput = {
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12317,7 +11911,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedCreateWithoutGroup_detailsInput = {
-    id?: number
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12340,6 +11934,7 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsCreateWithoutGroupInput = {
+    id?: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -12348,8 +11943,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedCreateWithoutGroupInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -12367,6 +11962,7 @@ export namespace Prisma {
   }
 
   export type user_group_mappingCreateWithoutGroup_detailsInput = {
+    id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -12379,8 +11975,8 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedCreateWithoutGroup_detailsInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -12413,6 +12009,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUpdateWithoutGroup_detailsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12430,7 +12027,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedUpdateWithoutGroup_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12480,11 +12077,12 @@ export namespace Prisma {
   }
 
   export type cohort_detailsCreateWithoutUserCohortsInput = {
+    id?: string
     cohort_name: string
   }
 
   export type cohort_detailsUncheckedCreateWithoutUserCohortsInput = {
-    id?: number
+    id?: string
     cohort_name: string
   }
 
@@ -12494,6 +12092,7 @@ export namespace Prisma {
   }
 
   export type user_detailsCreateWithoutUser_cohort_mappingInput = {
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12511,7 +12110,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedCreateWithoutUser_cohort_mappingInput = {
-    id?: number
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12545,11 +12144,12 @@ export namespace Prisma {
   }
 
   export type cohort_detailsUpdateWithoutUserCohortsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     cohort_name?: StringFieldUpdateOperationsInput | string
   }
 
   export type cohort_detailsUncheckedUpdateWithoutUserCohortsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     cohort_name?: StringFieldUpdateOperationsInput | string
   }
 
@@ -12565,6 +12165,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUpdateWithoutUser_cohort_mappingInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12582,7 +12183,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedUpdateWithoutUser_cohort_mappingInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12600,12 +12201,13 @@ export namespace Prisma {
   }
 
   export type user_cohort_mappingCreateWithoutCohortInput = {
+    id?: string
     user: user_detailsCreateNestedOneWithoutUser_cohort_mappingInput
   }
 
   export type user_cohort_mappingUncheckedCreateWithoutCohortInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
   }
 
   export type user_cohort_mappingCreateOrConnectWithoutCohortInput = {
@@ -12635,6 +12237,7 @@ export namespace Prisma {
   }
 
   export type group_detailsCreateWithoutGroup_joining_request_detailsInput = {
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
@@ -12645,11 +12248,11 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedCreateWithoutGroup_joining_request_detailsInput = {
-    id?: number
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
-    admin_id: number
+    admin_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user_group_mapping?: user_group_mappingUncheckedCreateNestedManyWithoutGroup_detailsInput
@@ -12661,6 +12264,7 @@ export namespace Prisma {
   }
 
   export type user_detailsCreateWithoutGroup_joining_request_detailsInput = {
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12678,7 +12282,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedCreateWithoutGroup_joining_request_detailsInput = {
-    id?: number
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12712,6 +12316,7 @@ export namespace Prisma {
   }
 
   export type group_detailsUpdateWithoutGroup_joining_request_detailsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
@@ -12722,11 +12327,11 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedUpdateWithoutGroup_joining_request_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
-    admin_id?: IntFieldUpdateOperationsInput | number
+    admin_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user_group_mapping?: user_group_mappingUncheckedUpdateManyWithoutGroup_detailsNestedInput
@@ -12744,6 +12349,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUpdateWithoutGroup_joining_request_detailsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12761,7 +12367,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedUpdateWithoutGroup_joining_request_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12779,6 +12385,7 @@ export namespace Prisma {
   }
 
   export type user_detailsCreateWithoutNotice_board_detailsInput = {
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12796,7 +12403,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedCreateWithoutNotice_board_detailsInput = {
-    id?: number
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12830,6 +12437,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUpdateWithoutNotice_board_detailsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12847,7 +12455,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedUpdateWithoutNotice_board_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12865,6 +12473,7 @@ export namespace Prisma {
   }
 
   export type group_detailsCreateWithoutUser_group_mappingInput = {
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
@@ -12875,11 +12484,11 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedCreateWithoutUser_group_mappingInput = {
-    id?: number
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
-    admin_id: number
+    admin_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     group_joining_request_details?: group_joining_request_detailsUncheckedCreateNestedManyWithoutGroupInput
@@ -12891,6 +12500,7 @@ export namespace Prisma {
   }
 
   export type user_detailsCreateWithoutUser_group_mappingInput = {
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12908,7 +12518,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedCreateWithoutUser_group_mappingInput = {
-    id?: number
+    id?: string
     email: string
     password: string
     frist_name: string
@@ -12942,6 +12552,7 @@ export namespace Prisma {
   }
 
   export type group_detailsUpdateWithoutUser_group_mappingInput = {
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
@@ -12952,11 +12563,11 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedUpdateWithoutUser_group_mappingInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
-    admin_id?: IntFieldUpdateOperationsInput | number
+    admin_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     group_joining_request_details?: group_joining_request_detailsUncheckedUpdateManyWithoutGroupNestedInput
@@ -12974,6 +12585,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUpdateWithoutUser_group_mappingInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -12991,7 +12603,7 @@ export namespace Prisma {
   }
 
   export type user_detailsUncheckedUpdateWithoutUser_group_mappingInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     frist_name?: StringFieldUpdateOperationsInput | string
@@ -13009,7 +12621,7 @@ export namespace Prisma {
   }
 
   export type group_detailsCreateManyCreated_byInput = {
-    id?: number
+    id?: string
     group_name: string
     group_desc: string
     is_published?: boolean
@@ -13018,8 +12630,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsCreateManyUserInput = {
-    id?: number
-    group_id: number
+    id?: string
+    group_id: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -13027,7 +12639,7 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsCreateManyHandled_byInput = {
-    id?: number
+    id?: string
     board_text?: string | null
     group_id: string
     createdAt?: Date | string
@@ -13035,13 +12647,13 @@ export namespace Prisma {
   }
 
   export type user_cohort_mappingCreateManyUserInput = {
-    id?: number
-    cohort_id: number
+    id?: string
+    cohort_id: string
   }
 
   export type user_group_mappingCreateManyUser_detailsInput = {
-    id?: number
-    group_id: number
+    id?: string
+    group_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -13053,6 +12665,7 @@ export namespace Prisma {
   }
 
   export type group_detailsUpdateWithoutCreated_byInput = {
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
@@ -13063,7 +12676,7 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedUpdateWithoutCreated_byInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
@@ -13074,7 +12687,7 @@ export namespace Prisma {
   }
 
   export type group_detailsUncheckedUpdateManyWithoutCreated_byInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     group_name?: StringFieldUpdateOperationsInput | string
     group_desc?: StringFieldUpdateOperationsInput | string
     is_published?: BoolFieldUpdateOperationsInput | boolean
@@ -13083,6 +12696,7 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13091,8 +12705,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13100,8 +12714,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13109,6 +12723,7 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsUpdateWithoutHandled_byInput = {
+    id?: StringFieldUpdateOperationsInput | string
     board_text?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13116,7 +12731,7 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsUncheckedUpdateWithoutHandled_byInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     board_text?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13124,7 +12739,7 @@ export namespace Prisma {
   }
 
   export type notice_board_detailsUncheckedUpdateManyWithoutHandled_byInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     board_text?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13132,20 +12747,22 @@ export namespace Prisma {
   }
 
   export type user_cohort_mappingUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     cohort?: cohort_detailsUpdateOneRequiredWithoutUserCohortsNestedInput
   }
 
   export type user_cohort_mappingUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    cohort_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    cohort_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type user_cohort_mappingUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    cohort_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    cohort_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type user_group_mappingUpdateWithoutUser_detailsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13158,8 +12775,8 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedUpdateWithoutUser_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13171,8 +12788,8 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedUpdateManyWithoutUser_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    group_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    group_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13184,8 +12801,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsCreateManyGroupInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     request_note_by_user?: string | null
     rejection_remark?: string | null
     requested_on?: Date | string | null
@@ -13193,8 +12810,8 @@ export namespace Prisma {
   }
 
   export type user_group_mappingCreateManyGroup_detailsInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     createdAt?: Date | string
     updatedAt?: Date | string
     joining_date?: Date | string | null
@@ -13206,6 +12823,7 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUpdateWithoutGroupInput = {
+    id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13214,8 +12832,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedUpdateWithoutGroupInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13223,8 +12841,8 @@ export namespace Prisma {
   }
 
   export type group_joining_request_detailsUncheckedUpdateManyWithoutGroupInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     request_note_by_user?: NullableStringFieldUpdateOperationsInput | string | null
     rejection_remark?: NullableStringFieldUpdateOperationsInput | string | null
     requested_on?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13232,6 +12850,7 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUpdateWithoutGroup_detailsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13244,8 +12863,8 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedUpdateWithoutGroup_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13257,8 +12876,8 @@ export namespace Prisma {
   }
 
   export type user_group_mappingUncheckedUpdateManyWithoutGroup_detailsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     joining_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13270,22 +12889,23 @@ export namespace Prisma {
   }
 
   export type user_cohort_mappingCreateManyCohortInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
   }
 
   export type user_cohort_mappingUpdateWithoutCohortInput = {
+    id?: StringFieldUpdateOperationsInput | string
     user?: user_detailsUpdateOneRequiredWithoutUser_cohort_mappingNestedInput
   }
 
   export type user_cohort_mappingUncheckedUpdateWithoutCohortInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type user_cohort_mappingUncheckedUpdateManyWithoutCohortInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
   }
 
 

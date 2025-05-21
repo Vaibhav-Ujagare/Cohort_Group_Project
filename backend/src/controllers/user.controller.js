@@ -62,7 +62,7 @@ export const registerUser = asyncHandler(async (req, res) => {
         tweeter_link,
     } = req.body;
 
-    const existingUser = await db.user_details_details.findUnique({
+    const existingUser = await db.user_details.findUnique({
         where: {
             email,
         },
@@ -74,7 +74,7 @@ export const registerUser = asyncHandler(async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await db.user_details_details.create({
+    const newUser = await db.user_details.create({
         data: {
             email,
             password: hashedPassword,

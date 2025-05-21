@@ -17,7 +17,7 @@ export const isLoggedIn = asyncHandler(async (req, res, next) => {
         }
 
         const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        const user = await db.User.findUnique({
+        const user = await db.user_details.findUnique({
             where: {
                 id: decodedToken.id,
             },
@@ -43,7 +43,7 @@ export const isAdmin = asyncHandler(async (req, res, next) => {
     try {
         const userId = req.user.id;
 
-        const user = await db.user.findUnique({
+        const user = await db.user_details.findUnique({
             where: {
                 id: userId,
             },
