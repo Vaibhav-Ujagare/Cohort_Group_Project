@@ -18,14 +18,14 @@ model user_details {
   id                            String                          @id @default(uuid())
   email                         String                          @unique
   password                      String
-  frist_name                    String
+  first_name                    String
   last_name                     String
   refreshToken                  String?
   role                          ROLE
-  github_link                   String
-  hashnode_link                 String
-  peerlist_link                 String
-  tweeter_link                  String
+  github_link                   String?
+  hashnode_link                 String?
+  peerlist_link                 String?
+  tweeter_link                  String?
   group_details                 group_details[]
   group_joining_request_details group_joining_request_details[]
   notice_board_details          notice_board_details[]
@@ -47,16 +47,20 @@ model group_details {
 }
 
 model user_cohort_mapping {
-  id        String         @id @default(uuid())
+  id        String @id @default(uuid())
   user_id   String
   cohort_id String
-  cohort    cohort_details @relation(fields: [cohort_id], references: [id], onDelete: Cascade)
-  user      user_details   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  cohort cohort_details @relation(fields: [cohort_id], references: [id], onDelete: Cascade)
+  user   user_details   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, cohort_id])
 }
 
 model cohort_details {
-  id          String                @id @default(uuid())
-  cohort_name String                @unique
+  id          String @id @default(uuid())
+  cohort_name String @unique
+
   userCohorts user_cohort_mapping[]
 }
 
@@ -96,4 +100,10 @@ model user_group_mapping {
   is_active_member Boolean?      @default(false)
   group_details    group_details @relation(fields: [group_id], references: [id], onDelete: Cascade)
   user_details     user_details  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model super_admin {
+  id       String @id @default(uuid())
+  username String @unique
+  password String
 }

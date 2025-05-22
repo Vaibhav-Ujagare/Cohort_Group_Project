@@ -48,6 +48,11 @@ export type notice_board_details = $Result.DefaultSelection<Prisma.$notice_board
  * 
  */
 export type user_group_mapping = $Result.DefaultSelection<Prisma.$user_group_mappingPayload>
+/**
+ * Model super_admin
+ * 
+ */
+export type super_admin = $Result.DefaultSelection<Prisma.$super_adminPayload>
 
 /**
  * Enums
@@ -261,6 +266,16 @@ export class PrismaClient<
     * ```
     */
   get user_group_mapping(): Prisma.user_group_mappingDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.super_admin`: Exposes CRUD operations for the **super_admin** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Super_admins
+    * const super_admins = await prisma.super_admin.findMany()
+    * ```
+    */
+  get super_admin(): Prisma.super_adminDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -707,7 +722,8 @@ export namespace Prisma {
     cohort_details: 'cohort_details',
     group_joining_request_details: 'group_joining_request_details',
     notice_board_details: 'notice_board_details',
-    user_group_mapping: 'user_group_mapping'
+    user_group_mapping: 'user_group_mapping',
+    super_admin: 'super_admin'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -726,7 +742,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user_details" | "group_details" | "user_cohort_mapping" | "cohort_details" | "group_joining_request_details" | "notice_board_details" | "user_group_mapping"
+      modelProps: "user_details" | "group_details" | "user_cohort_mapping" | "cohort_details" | "group_joining_request_details" | "notice_board_details" | "user_group_mapping" | "super_admin"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1248,6 +1264,80 @@ export namespace Prisma {
           }
         }
       }
+      super_admin: {
+        payload: Prisma.$super_adminPayload<ExtArgs>
+        fields: Prisma.super_adminFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.super_adminFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.super_adminFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>
+          }
+          findFirst: {
+            args: Prisma.super_adminFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.super_adminFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>
+          }
+          findMany: {
+            args: Prisma.super_adminFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>[]
+          }
+          create: {
+            args: Prisma.super_adminCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>
+          }
+          createMany: {
+            args: Prisma.super_adminCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.super_adminCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>[]
+          }
+          delete: {
+            args: Prisma.super_adminDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>
+          }
+          update: {
+            args: Prisma.super_adminUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>
+          }
+          deleteMany: {
+            args: Prisma.super_adminDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.super_adminUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.super_adminUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>[]
+          }
+          upsert: {
+            args: Prisma.super_adminUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$super_adminPayload>
+          }
+          aggregate: {
+            args: Prisma.Super_adminAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSuper_admin>
+          }
+          groupBy: {
+            args: Prisma.super_adminGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Super_adminGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.super_adminCountArgs<ExtArgs>
+            result: $Utils.Optional<Super_adminCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1339,6 +1429,7 @@ export namespace Prisma {
     group_joining_request_details?: group_joining_request_detailsOmit
     notice_board_details?: notice_board_detailsOmit
     user_group_mapping?: user_group_mappingOmit
+    super_admin?: super_adminOmit
   }
 
   /* Types for Logging */
@@ -1584,7 +1675,7 @@ export namespace Prisma {
     id: string | null
     email: string | null
     password: string | null
-    frist_name: string | null
+    first_name: string | null
     last_name: string | null
     refreshToken: string | null
     role: $Enums.ROLE | null
@@ -1598,7 +1689,7 @@ export namespace Prisma {
     id: string | null
     email: string | null
     password: string | null
-    frist_name: string | null
+    first_name: string | null
     last_name: string | null
     refreshToken: string | null
     role: $Enums.ROLE | null
@@ -1612,7 +1703,7 @@ export namespace Prisma {
     id: number
     email: number
     password: number
-    frist_name: number
+    first_name: number
     last_name: number
     refreshToken: number
     role: number
@@ -1628,7 +1719,7 @@ export namespace Prisma {
     id?: true
     email?: true
     password?: true
-    frist_name?: true
+    first_name?: true
     last_name?: true
     refreshToken?: true
     role?: true
@@ -1642,7 +1733,7 @@ export namespace Prisma {
     id?: true
     email?: true
     password?: true
-    frist_name?: true
+    first_name?: true
     last_name?: true
     refreshToken?: true
     role?: true
@@ -1656,7 +1747,7 @@ export namespace Prisma {
     id?: true
     email?: true
     password?: true
-    frist_name?: true
+    first_name?: true
     last_name?: true
     refreshToken?: true
     role?: true
@@ -1743,14 +1834,14 @@ export namespace Prisma {
     id: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link: string | null
+    hashnode_link: string | null
+    peerlist_link: string | null
+    tweeter_link: string | null
     _count: User_detailsCountAggregateOutputType | null
     _min: User_detailsMinAggregateOutputType | null
     _max: User_detailsMaxAggregateOutputType | null
@@ -1774,7 +1865,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     password?: boolean
-    frist_name?: boolean
+    first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
     role?: boolean
@@ -1794,7 +1885,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     password?: boolean
-    frist_name?: boolean
+    first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
     role?: boolean
@@ -1808,7 +1899,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     password?: boolean
-    frist_name?: boolean
+    first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
     role?: boolean
@@ -1822,7 +1913,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     password?: boolean
-    frist_name?: boolean
+    first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
     role?: boolean
@@ -1832,7 +1923,7 @@ export namespace Prisma {
     tweeter_link?: boolean
   }
 
-  export type user_detailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "frist_name" | "last_name" | "refreshToken" | "role" | "github_link" | "hashnode_link" | "peerlist_link" | "tweeter_link", ExtArgs["result"]["user_details"]>
+  export type user_detailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "first_name" | "last_name" | "refreshToken" | "role" | "github_link" | "hashnode_link" | "peerlist_link" | "tweeter_link", ExtArgs["result"]["user_details"]>
   export type user_detailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     group_details?: boolean | user_details$group_detailsArgs<ExtArgs>
     group_joining_request_details?: boolean | user_details$group_joining_request_detailsArgs<ExtArgs>
@@ -1857,14 +1948,14 @@ export namespace Prisma {
       id: string
       email: string
       password: string
-      frist_name: string
+      first_name: string
       last_name: string
       refreshToken: string | null
       role: $Enums.ROLE
-      github_link: string
-      hashnode_link: string
-      peerlist_link: string
-      tweeter_link: string
+      github_link: string | null
+      hashnode_link: string | null
+      peerlist_link: string | null
+      tweeter_link: string | null
     }, ExtArgs["result"]["user_details"]>
     composites: {}
   }
@@ -2296,7 +2387,7 @@ export namespace Prisma {
     readonly id: FieldRef<"user_details", 'String'>
     readonly email: FieldRef<"user_details", 'String'>
     readonly password: FieldRef<"user_details", 'String'>
-    readonly frist_name: FieldRef<"user_details", 'String'>
+    readonly first_name: FieldRef<"user_details", 'String'>
     readonly last_name: FieldRef<"user_details", 'String'>
     readonly refreshToken: FieldRef<"user_details", 'String'>
     readonly role: FieldRef<"user_details", 'ROLE'>
@@ -9351,6 +9442,975 @@ export namespace Prisma {
 
 
   /**
+   * Model super_admin
+   */
+
+  export type AggregateSuper_admin = {
+    _count: Super_adminCountAggregateOutputType | null
+    _min: Super_adminMinAggregateOutputType | null
+    _max: Super_adminMaxAggregateOutputType | null
+  }
+
+  export type Super_adminMinAggregateOutputType = {
+    id: string | null
+    username: string | null
+    password: string | null
+  }
+
+  export type Super_adminMaxAggregateOutputType = {
+    id: string | null
+    username: string | null
+    password: string | null
+  }
+
+  export type Super_adminCountAggregateOutputType = {
+    id: number
+    username: number
+    password: number
+    _all: number
+  }
+
+
+  export type Super_adminMinAggregateInputType = {
+    id?: true
+    username?: true
+    password?: true
+  }
+
+  export type Super_adminMaxAggregateInputType = {
+    id?: true
+    username?: true
+    password?: true
+  }
+
+  export type Super_adminCountAggregateInputType = {
+    id?: true
+    username?: true
+    password?: true
+    _all?: true
+  }
+
+  export type Super_adminAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which super_admin to aggregate.
+     */
+    where?: super_adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of super_admins to fetch.
+     */
+    orderBy?: super_adminOrderByWithRelationInput | super_adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: super_adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` super_admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` super_admins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned super_admins
+    **/
+    _count?: true | Super_adminCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Super_adminMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Super_adminMaxAggregateInputType
+  }
+
+  export type GetSuper_adminAggregateType<T extends Super_adminAggregateArgs> = {
+        [P in keyof T & keyof AggregateSuper_admin]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSuper_admin[P]>
+      : GetScalarType<T[P], AggregateSuper_admin[P]>
+  }
+
+
+
+
+  export type super_adminGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: super_adminWhereInput
+    orderBy?: super_adminOrderByWithAggregationInput | super_adminOrderByWithAggregationInput[]
+    by: Super_adminScalarFieldEnum[] | Super_adminScalarFieldEnum
+    having?: super_adminScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Super_adminCountAggregateInputType | true
+    _min?: Super_adminMinAggregateInputType
+    _max?: Super_adminMaxAggregateInputType
+  }
+
+  export type Super_adminGroupByOutputType = {
+    id: string
+    username: string
+    password: string
+    _count: Super_adminCountAggregateOutputType | null
+    _min: Super_adminMinAggregateOutputType | null
+    _max: Super_adminMaxAggregateOutputType | null
+  }
+
+  type GetSuper_adminGroupByPayload<T extends super_adminGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Super_adminGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Super_adminGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Super_adminGroupByOutputType[P]>
+            : GetScalarType<T[P], Super_adminGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type super_adminSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    username?: boolean
+    password?: boolean
+  }, ExtArgs["result"]["super_admin"]>
+
+  export type super_adminSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    username?: boolean
+    password?: boolean
+  }, ExtArgs["result"]["super_admin"]>
+
+  export type super_adminSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    username?: boolean
+    password?: boolean
+  }, ExtArgs["result"]["super_admin"]>
+
+  export type super_adminSelectScalar = {
+    id?: boolean
+    username?: boolean
+    password?: boolean
+  }
+
+  export type super_adminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "password", ExtArgs["result"]["super_admin"]>
+
+  export type $super_adminPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "super_admin"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      username: string
+      password: string
+    }, ExtArgs["result"]["super_admin"]>
+    composites: {}
+  }
+
+  type super_adminGetPayload<S extends boolean | null | undefined | super_adminDefaultArgs> = $Result.GetResult<Prisma.$super_adminPayload, S>
+
+  type super_adminCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<super_adminFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Super_adminCountAggregateInputType | true
+    }
+
+  export interface super_adminDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['super_admin'], meta: { name: 'super_admin' } }
+    /**
+     * Find zero or one Super_admin that matches the filter.
+     * @param {super_adminFindUniqueArgs} args - Arguments to find a Super_admin
+     * @example
+     * // Get one Super_admin
+     * const super_admin = await prisma.super_admin.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends super_adminFindUniqueArgs>(args: SelectSubset<T, super_adminFindUniqueArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Super_admin that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {super_adminFindUniqueOrThrowArgs} args - Arguments to find a Super_admin
+     * @example
+     * // Get one Super_admin
+     * const super_admin = await prisma.super_admin.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends super_adminFindUniqueOrThrowArgs>(args: SelectSubset<T, super_adminFindUniqueOrThrowArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Super_admin that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {super_adminFindFirstArgs} args - Arguments to find a Super_admin
+     * @example
+     * // Get one Super_admin
+     * const super_admin = await prisma.super_admin.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends super_adminFindFirstArgs>(args?: SelectSubset<T, super_adminFindFirstArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Super_admin that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {super_adminFindFirstOrThrowArgs} args - Arguments to find a Super_admin
+     * @example
+     * // Get one Super_admin
+     * const super_admin = await prisma.super_admin.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends super_adminFindFirstOrThrowArgs>(args?: SelectSubset<T, super_adminFindFirstOrThrowArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Super_admins that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {super_adminFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Super_admins
+     * const super_admins = await prisma.super_admin.findMany()
+     * 
+     * // Get first 10 Super_admins
+     * const super_admins = await prisma.super_admin.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const super_adminWithIdOnly = await prisma.super_admin.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends super_adminFindManyArgs>(args?: SelectSubset<T, super_adminFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Super_admin.
+     * @param {super_adminCreateArgs} args - Arguments to create a Super_admin.
+     * @example
+     * // Create one Super_admin
+     * const Super_admin = await prisma.super_admin.create({
+     *   data: {
+     *     // ... data to create a Super_admin
+     *   }
+     * })
+     * 
+     */
+    create<T extends super_adminCreateArgs>(args: SelectSubset<T, super_adminCreateArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Super_admins.
+     * @param {super_adminCreateManyArgs} args - Arguments to create many Super_admins.
+     * @example
+     * // Create many Super_admins
+     * const super_admin = await prisma.super_admin.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends super_adminCreateManyArgs>(args?: SelectSubset<T, super_adminCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Super_admins and returns the data saved in the database.
+     * @param {super_adminCreateManyAndReturnArgs} args - Arguments to create many Super_admins.
+     * @example
+     * // Create many Super_admins
+     * const super_admin = await prisma.super_admin.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Super_admins and only return the `id`
+     * const super_adminWithIdOnly = await prisma.super_admin.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends super_adminCreateManyAndReturnArgs>(args?: SelectSubset<T, super_adminCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Super_admin.
+     * @param {super_adminDeleteArgs} args - Arguments to delete one Super_admin.
+     * @example
+     * // Delete one Super_admin
+     * const Super_admin = await prisma.super_admin.delete({
+     *   where: {
+     *     // ... filter to delete one Super_admin
+     *   }
+     * })
+     * 
+     */
+    delete<T extends super_adminDeleteArgs>(args: SelectSubset<T, super_adminDeleteArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Super_admin.
+     * @param {super_adminUpdateArgs} args - Arguments to update one Super_admin.
+     * @example
+     * // Update one Super_admin
+     * const super_admin = await prisma.super_admin.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends super_adminUpdateArgs>(args: SelectSubset<T, super_adminUpdateArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Super_admins.
+     * @param {super_adminDeleteManyArgs} args - Arguments to filter Super_admins to delete.
+     * @example
+     * // Delete a few Super_admins
+     * const { count } = await prisma.super_admin.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends super_adminDeleteManyArgs>(args?: SelectSubset<T, super_adminDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Super_admins.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {super_adminUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Super_admins
+     * const super_admin = await prisma.super_admin.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends super_adminUpdateManyArgs>(args: SelectSubset<T, super_adminUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Super_admins and returns the data updated in the database.
+     * @param {super_adminUpdateManyAndReturnArgs} args - Arguments to update many Super_admins.
+     * @example
+     * // Update many Super_admins
+     * const super_admin = await prisma.super_admin.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Super_admins and only return the `id`
+     * const super_adminWithIdOnly = await prisma.super_admin.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends super_adminUpdateManyAndReturnArgs>(args: SelectSubset<T, super_adminUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Super_admin.
+     * @param {super_adminUpsertArgs} args - Arguments to update or create a Super_admin.
+     * @example
+     * // Update or create a Super_admin
+     * const super_admin = await prisma.super_admin.upsert({
+     *   create: {
+     *     // ... data to create a Super_admin
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Super_admin we want to update
+     *   }
+     * })
+     */
+    upsert<T extends super_adminUpsertArgs>(args: SelectSubset<T, super_adminUpsertArgs<ExtArgs>>): Prisma__super_adminClient<$Result.GetResult<Prisma.$super_adminPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Super_admins.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {super_adminCountArgs} args - Arguments to filter Super_admins to count.
+     * @example
+     * // Count the number of Super_admins
+     * const count = await prisma.super_admin.count({
+     *   where: {
+     *     // ... the filter for the Super_admins we want to count
+     *   }
+     * })
+    **/
+    count<T extends super_adminCountArgs>(
+      args?: Subset<T, super_adminCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Super_adminCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Super_admin.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Super_adminAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Super_adminAggregateArgs>(args: Subset<T, Super_adminAggregateArgs>): Prisma.PrismaPromise<GetSuper_adminAggregateType<T>>
+
+    /**
+     * Group by Super_admin.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {super_adminGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends super_adminGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: super_adminGroupByArgs['orderBy'] }
+        : { orderBy?: super_adminGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, super_adminGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSuper_adminGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the super_admin model
+   */
+  readonly fields: super_adminFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for super_admin.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__super_adminClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the super_admin model
+   */
+  interface super_adminFieldRefs {
+    readonly id: FieldRef<"super_admin", 'String'>
+    readonly username: FieldRef<"super_admin", 'String'>
+    readonly password: FieldRef<"super_admin", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * super_admin findUnique
+   */
+  export type super_adminFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * Filter, which super_admin to fetch.
+     */
+    where: super_adminWhereUniqueInput
+  }
+
+  /**
+   * super_admin findUniqueOrThrow
+   */
+  export type super_adminFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * Filter, which super_admin to fetch.
+     */
+    where: super_adminWhereUniqueInput
+  }
+
+  /**
+   * super_admin findFirst
+   */
+  export type super_adminFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * Filter, which super_admin to fetch.
+     */
+    where?: super_adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of super_admins to fetch.
+     */
+    orderBy?: super_adminOrderByWithRelationInput | super_adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for super_admins.
+     */
+    cursor?: super_adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` super_admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` super_admins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of super_admins.
+     */
+    distinct?: Super_adminScalarFieldEnum | Super_adminScalarFieldEnum[]
+  }
+
+  /**
+   * super_admin findFirstOrThrow
+   */
+  export type super_adminFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * Filter, which super_admin to fetch.
+     */
+    where?: super_adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of super_admins to fetch.
+     */
+    orderBy?: super_adminOrderByWithRelationInput | super_adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for super_admins.
+     */
+    cursor?: super_adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` super_admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` super_admins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of super_admins.
+     */
+    distinct?: Super_adminScalarFieldEnum | Super_adminScalarFieldEnum[]
+  }
+
+  /**
+   * super_admin findMany
+   */
+  export type super_adminFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * Filter, which super_admins to fetch.
+     */
+    where?: super_adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of super_admins to fetch.
+     */
+    orderBy?: super_adminOrderByWithRelationInput | super_adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing super_admins.
+     */
+    cursor?: super_adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` super_admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` super_admins.
+     */
+    skip?: number
+    distinct?: Super_adminScalarFieldEnum | Super_adminScalarFieldEnum[]
+  }
+
+  /**
+   * super_admin create
+   */
+  export type super_adminCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * The data needed to create a super_admin.
+     */
+    data: XOR<super_adminCreateInput, super_adminUncheckedCreateInput>
+  }
+
+  /**
+   * super_admin createMany
+   */
+  export type super_adminCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many super_admins.
+     */
+    data: super_adminCreateManyInput | super_adminCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * super_admin createManyAndReturn
+   */
+  export type super_adminCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * The data used to create many super_admins.
+     */
+    data: super_adminCreateManyInput | super_adminCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * super_admin update
+   */
+  export type super_adminUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * The data needed to update a super_admin.
+     */
+    data: XOR<super_adminUpdateInput, super_adminUncheckedUpdateInput>
+    /**
+     * Choose, which super_admin to update.
+     */
+    where: super_adminWhereUniqueInput
+  }
+
+  /**
+   * super_admin updateMany
+   */
+  export type super_adminUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update super_admins.
+     */
+    data: XOR<super_adminUpdateManyMutationInput, super_adminUncheckedUpdateManyInput>
+    /**
+     * Filter which super_admins to update
+     */
+    where?: super_adminWhereInput
+    /**
+     * Limit how many super_admins to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * super_admin updateManyAndReturn
+   */
+  export type super_adminUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * The data used to update super_admins.
+     */
+    data: XOR<super_adminUpdateManyMutationInput, super_adminUncheckedUpdateManyInput>
+    /**
+     * Filter which super_admins to update
+     */
+    where?: super_adminWhereInput
+    /**
+     * Limit how many super_admins to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * super_admin upsert
+   */
+  export type super_adminUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * The filter to search for the super_admin to update in case it exists.
+     */
+    where: super_adminWhereUniqueInput
+    /**
+     * In case the super_admin found by the `where` argument doesn't exist, create a new super_admin with this data.
+     */
+    create: XOR<super_adminCreateInput, super_adminUncheckedCreateInput>
+    /**
+     * In case the super_admin was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<super_adminUpdateInput, super_adminUncheckedUpdateInput>
+  }
+
+  /**
+   * super_admin delete
+   */
+  export type super_adminDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+    /**
+     * Filter which super_admin to delete.
+     */
+    where: super_adminWhereUniqueInput
+  }
+
+  /**
+   * super_admin deleteMany
+   */
+  export type super_adminDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which super_admins to delete
+     */
+    where?: super_adminWhereInput
+    /**
+     * Limit how many super_admins to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * super_admin without action
+   */
+  export type super_adminDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the super_admin
+     */
+    select?: super_adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the super_admin
+     */
+    omit?: super_adminOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9368,7 +10428,7 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     password: 'password',
-    frist_name: 'frist_name',
+    first_name: 'first_name',
     last_name: 'last_name',
     refreshToken: 'refreshToken',
     role: 'role',
@@ -9451,6 +10511,15 @@ export namespace Prisma {
   };
 
   export type User_group_mappingScalarFieldEnum = (typeof User_group_mappingScalarFieldEnum)[keyof typeof User_group_mappingScalarFieldEnum]
+
+
+  export const Super_adminScalarFieldEnum: {
+    id: 'id',
+    username: 'username',
+    password: 'password'
+  };
+
+  export type Super_adminScalarFieldEnum = (typeof Super_adminScalarFieldEnum)[keyof typeof Super_adminScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9555,14 +10624,14 @@ export namespace Prisma {
     id?: StringFilter<"user_details"> | string
     email?: StringFilter<"user_details"> | string
     password?: StringFilter<"user_details"> | string
-    frist_name?: StringFilter<"user_details"> | string
+    first_name?: StringFilter<"user_details"> | string
     last_name?: StringFilter<"user_details"> | string
     refreshToken?: StringNullableFilter<"user_details"> | string | null
     role?: EnumROLEFilter<"user_details"> | $Enums.ROLE
-    github_link?: StringFilter<"user_details"> | string
-    hashnode_link?: StringFilter<"user_details"> | string
-    peerlist_link?: StringFilter<"user_details"> | string
-    tweeter_link?: StringFilter<"user_details"> | string
+    github_link?: StringNullableFilter<"user_details"> | string | null
+    hashnode_link?: StringNullableFilter<"user_details"> | string | null
+    peerlist_link?: StringNullableFilter<"user_details"> | string | null
+    tweeter_link?: StringNullableFilter<"user_details"> | string | null
     group_details?: Group_detailsListRelationFilter
     group_joining_request_details?: Group_joining_request_detailsListRelationFilter
     notice_board_details?: Notice_board_detailsListRelationFilter
@@ -9574,14 +10643,14 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    frist_name?: SortOrder
+    first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrderInput | SortOrder
     role?: SortOrder
-    github_link?: SortOrder
-    hashnode_link?: SortOrder
-    peerlist_link?: SortOrder
-    tweeter_link?: SortOrder
+    github_link?: SortOrderInput | SortOrder
+    hashnode_link?: SortOrderInput | SortOrder
+    peerlist_link?: SortOrderInput | SortOrder
+    tweeter_link?: SortOrderInput | SortOrder
     group_details?: group_detailsOrderByRelationAggregateInput
     group_joining_request_details?: group_joining_request_detailsOrderByRelationAggregateInput
     notice_board_details?: notice_board_detailsOrderByRelationAggregateInput
@@ -9596,14 +10665,14 @@ export namespace Prisma {
     OR?: user_detailsWhereInput[]
     NOT?: user_detailsWhereInput | user_detailsWhereInput[]
     password?: StringFilter<"user_details"> | string
-    frist_name?: StringFilter<"user_details"> | string
+    first_name?: StringFilter<"user_details"> | string
     last_name?: StringFilter<"user_details"> | string
     refreshToken?: StringNullableFilter<"user_details"> | string | null
     role?: EnumROLEFilter<"user_details"> | $Enums.ROLE
-    github_link?: StringFilter<"user_details"> | string
-    hashnode_link?: StringFilter<"user_details"> | string
-    peerlist_link?: StringFilter<"user_details"> | string
-    tweeter_link?: StringFilter<"user_details"> | string
+    github_link?: StringNullableFilter<"user_details"> | string | null
+    hashnode_link?: StringNullableFilter<"user_details"> | string | null
+    peerlist_link?: StringNullableFilter<"user_details"> | string | null
+    tweeter_link?: StringNullableFilter<"user_details"> | string | null
     group_details?: Group_detailsListRelationFilter
     group_joining_request_details?: Group_joining_request_detailsListRelationFilter
     notice_board_details?: Notice_board_detailsListRelationFilter
@@ -9615,14 +10684,14 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    frist_name?: SortOrder
+    first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrderInput | SortOrder
     role?: SortOrder
-    github_link?: SortOrder
-    hashnode_link?: SortOrder
-    peerlist_link?: SortOrder
-    tweeter_link?: SortOrder
+    github_link?: SortOrderInput | SortOrder
+    hashnode_link?: SortOrderInput | SortOrder
+    peerlist_link?: SortOrderInput | SortOrder
+    tweeter_link?: SortOrderInput | SortOrder
     _count?: user_detailsCountOrderByAggregateInput
     _max?: user_detailsMaxOrderByAggregateInput
     _min?: user_detailsMinOrderByAggregateInput
@@ -9635,14 +10704,14 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"user_details"> | string
     email?: StringWithAggregatesFilter<"user_details"> | string
     password?: StringWithAggregatesFilter<"user_details"> | string
-    frist_name?: StringWithAggregatesFilter<"user_details"> | string
+    first_name?: StringWithAggregatesFilter<"user_details"> | string
     last_name?: StringWithAggregatesFilter<"user_details"> | string
     refreshToken?: StringNullableWithAggregatesFilter<"user_details"> | string | null
     role?: EnumROLEWithAggregatesFilter<"user_details"> | $Enums.ROLE
-    github_link?: StringWithAggregatesFilter<"user_details"> | string
-    hashnode_link?: StringWithAggregatesFilter<"user_details"> | string
-    peerlist_link?: StringWithAggregatesFilter<"user_details"> | string
-    tweeter_link?: StringWithAggregatesFilter<"user_details"> | string
+    github_link?: StringNullableWithAggregatesFilter<"user_details"> | string | null
+    hashnode_link?: StringNullableWithAggregatesFilter<"user_details"> | string | null
+    peerlist_link?: StringNullableWithAggregatesFilter<"user_details"> | string | null
+    tweeter_link?: StringNullableWithAggregatesFilter<"user_details"> | string | null
   }
 
   export type group_detailsWhereInput = {
@@ -9737,6 +10806,7 @@ export namespace Prisma {
 
   export type user_cohort_mappingWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    user_id_cohort_id?: user_cohort_mappingUser_idCohort_idCompoundUniqueInput
     AND?: user_cohort_mappingWhereInput | user_cohort_mappingWhereInput[]
     OR?: user_cohort_mappingWhereInput[]
     NOT?: user_cohort_mappingWhereInput | user_cohort_mappingWhereInput[]
@@ -9744,7 +10814,7 @@ export namespace Prisma {
     cohort_id?: StringFilter<"user_cohort_mapping"> | string
     cohort?: XOR<Cohort_detailsScalarRelationFilter, cohort_detailsWhereInput>
     user?: XOR<User_detailsScalarRelationFilter, user_detailsWhereInput>
-  }, "id">
+  }, "id" | "user_id_cohort_id">
 
   export type user_cohort_mappingOrderByWithAggregationInput = {
     id?: SortOrder
@@ -10020,18 +11090,60 @@ export namespace Prisma {
     is_active_member?: BoolNullableWithAggregatesFilter<"user_group_mapping"> | boolean | null
   }
 
+  export type super_adminWhereInput = {
+    AND?: super_adminWhereInput | super_adminWhereInput[]
+    OR?: super_adminWhereInput[]
+    NOT?: super_adminWhereInput | super_adminWhereInput[]
+    id?: StringFilter<"super_admin"> | string
+    username?: StringFilter<"super_admin"> | string
+    password?: StringFilter<"super_admin"> | string
+  }
+
+  export type super_adminOrderByWithRelationInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type super_adminWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    username?: string
+    AND?: super_adminWhereInput | super_adminWhereInput[]
+    OR?: super_adminWhereInput[]
+    NOT?: super_adminWhereInput | super_adminWhereInput[]
+    password?: StringFilter<"super_admin"> | string
+  }, "id" | "username">
+
+  export type super_adminOrderByWithAggregationInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+    _count?: super_adminCountOrderByAggregateInput
+    _max?: super_adminMaxOrderByAggregateInput
+    _min?: super_adminMinOrderByAggregateInput
+  }
+
+  export type super_adminScalarWhereWithAggregatesInput = {
+    AND?: super_adminScalarWhereWithAggregatesInput | super_adminScalarWhereWithAggregatesInput[]
+    OR?: super_adminScalarWhereWithAggregatesInput[]
+    NOT?: super_adminScalarWhereWithAggregatesInput | super_adminScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"super_admin"> | string
+    username?: StringWithAggregatesFilter<"super_admin"> | string
+    password?: StringWithAggregatesFilter<"super_admin"> | string
+  }
+
   export type user_detailsCreateInput = {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsCreateNestedManyWithoutHandled_byInput
@@ -10043,14 +11155,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsUncheckedCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsUncheckedCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsUncheckedCreateNestedManyWithoutHandled_byInput
@@ -10062,14 +11174,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUpdateManyWithoutHandled_byNestedInput
@@ -10081,14 +11193,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUncheckedUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUncheckedUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUncheckedUpdateManyWithoutHandled_byNestedInput
@@ -10100,42 +11212,42 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
   }
 
   export type user_detailsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type user_detailsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type group_detailsCreateInput = {
@@ -10520,6 +11632,48 @@ export namespace Prisma {
     is_active_member?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
+  export type super_adminCreateInput = {
+    id?: string
+    username: string
+    password: string
+  }
+
+  export type super_adminUncheckedCreateInput = {
+    id?: string
+    username: string
+    password: string
+  }
+
+  export type super_adminUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type super_adminUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type super_adminCreateManyInput = {
+    id?: string
+    username: string
+    password: string
+  }
+
+  export type super_adminUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type super_adminUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -10616,7 +11770,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    frist_name?: SortOrder
+    first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrder
     role?: SortOrder
@@ -10630,7 +11784,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    frist_name?: SortOrder
+    first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrder
     role?: SortOrder
@@ -10644,7 +11798,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    frist_name?: SortOrder
+    first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrder
     role?: SortOrder
@@ -10776,6 +11930,11 @@ export namespace Prisma {
   export type Cohort_detailsScalarRelationFilter = {
     is?: cohort_detailsWhereInput
     isNot?: cohort_detailsWhereInput
+  }
+
+  export type user_cohort_mappingUser_idCohort_idCompoundUniqueInput = {
+    user_id: string
+    cohort_id: string
   }
 
   export type user_cohort_mappingCountOrderByAggregateInput = {
@@ -10951,6 +12110,24 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type super_adminCountOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type super_adminMaxOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type super_adminMinOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
   }
 
   export type group_detailsCreateNestedManyWithoutCreated_byInput = {
@@ -11896,14 +13073,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_joining_request_details?: group_joining_request_detailsCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsCreateNestedManyWithoutHandled_byInput
     user_cohort_mapping?: user_cohort_mappingCreateNestedManyWithoutUserInput
@@ -11914,14 +13091,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_joining_request_details?: group_joining_request_detailsUncheckedCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsUncheckedCreateNestedManyWithoutHandled_byInput
     user_cohort_mapping?: user_cohort_mappingUncheckedCreateNestedManyWithoutUserInput
@@ -12012,14 +13189,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_joining_request_details?: group_joining_request_detailsUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUpdateManyWithoutHandled_byNestedInput
     user_cohort_mapping?: user_cohort_mappingUpdateManyWithoutUserNestedInput
@@ -12030,14 +13207,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_joining_request_details?: group_joining_request_detailsUncheckedUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUncheckedUpdateManyWithoutHandled_byNestedInput
     user_cohort_mapping?: user_cohort_mappingUncheckedUpdateManyWithoutUserNestedInput
@@ -12095,14 +13272,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsCreateNestedManyWithoutHandled_byInput
@@ -12113,14 +13290,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsUncheckedCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsUncheckedCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsUncheckedCreateNestedManyWithoutHandled_byInput
@@ -12168,14 +13345,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUpdateManyWithoutHandled_byNestedInput
@@ -12186,14 +13363,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUncheckedUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUncheckedUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUncheckedUpdateManyWithoutHandled_byNestedInput
@@ -12267,14 +13444,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsCreateNestedManyWithoutCreated_byInput
     notice_board_details?: notice_board_detailsCreateNestedManyWithoutHandled_byInput
     user_cohort_mapping?: user_cohort_mappingCreateNestedManyWithoutUserInput
@@ -12285,14 +13462,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsUncheckedCreateNestedManyWithoutCreated_byInput
     notice_board_details?: notice_board_detailsUncheckedCreateNestedManyWithoutHandled_byInput
     user_cohort_mapping?: user_cohort_mappingUncheckedCreateNestedManyWithoutUserInput
@@ -12352,14 +13529,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUpdateManyWithoutCreated_byNestedInput
     notice_board_details?: notice_board_detailsUpdateManyWithoutHandled_byNestedInput
     user_cohort_mapping?: user_cohort_mappingUpdateManyWithoutUserNestedInput
@@ -12370,14 +13547,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUncheckedUpdateManyWithoutCreated_byNestedInput
     notice_board_details?: notice_board_detailsUncheckedUpdateManyWithoutHandled_byNestedInput
     user_cohort_mapping?: user_cohort_mappingUncheckedUpdateManyWithoutUserNestedInput
@@ -12388,14 +13565,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsCreateNestedManyWithoutUserInput
     user_cohort_mapping?: user_cohort_mappingCreateNestedManyWithoutUserInput
@@ -12406,14 +13583,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsUncheckedCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsUncheckedCreateNestedManyWithoutUserInput
     user_cohort_mapping?: user_cohort_mappingUncheckedCreateNestedManyWithoutUserInput
@@ -12440,14 +13617,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUpdateManyWithoutUserNestedInput
     user_cohort_mapping?: user_cohort_mappingUpdateManyWithoutUserNestedInput
@@ -12458,14 +13635,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUncheckedUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUncheckedUpdateManyWithoutUserNestedInput
     user_cohort_mapping?: user_cohort_mappingUncheckedUpdateManyWithoutUserNestedInput
@@ -12503,14 +13680,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsCreateNestedManyWithoutHandled_byInput
@@ -12521,14 +13698,14 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    frist_name: string
+    first_name: string
     last_name: string
     refreshToken?: string | null
     role: $Enums.ROLE
-    github_link: string
-    hashnode_link: string
-    peerlist_link: string
-    tweeter_link: string
+    github_link?: string | null
+    hashnode_link?: string | null
+    peerlist_link?: string | null
+    tweeter_link?: string | null
     group_details?: group_detailsUncheckedCreateNestedManyWithoutCreated_byInput
     group_joining_request_details?: group_joining_request_detailsUncheckedCreateNestedManyWithoutUserInput
     notice_board_details?: notice_board_detailsUncheckedCreateNestedManyWithoutHandled_byInput
@@ -12588,14 +13765,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUpdateManyWithoutHandled_byNestedInput
@@ -12606,14 +13783,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    frist_name?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-    github_link?: StringFieldUpdateOperationsInput | string
-    hashnode_link?: StringFieldUpdateOperationsInput | string
-    peerlist_link?: StringFieldUpdateOperationsInput | string
-    tweeter_link?: StringFieldUpdateOperationsInput | string
+    github_link?: NullableStringFieldUpdateOperationsInput | string | null
+    hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
+    peerlist_link?: NullableStringFieldUpdateOperationsInput | string | null
+    tweeter_link?: NullableStringFieldUpdateOperationsInput | string | null
     group_details?: group_detailsUncheckedUpdateManyWithoutCreated_byNestedInput
     group_joining_request_details?: group_joining_request_detailsUncheckedUpdateManyWithoutUserNestedInput
     notice_board_details?: notice_board_detailsUncheckedUpdateManyWithoutHandled_byNestedInput

@@ -213,3 +213,31 @@ EXECUTE FUNCTION audit_user_group_mapping();
 
 
 
+
+
+const cohort = await db.cohort_details.create({
+                data: {
+                    cohort_name: data.Cohort_Name,
+                },
+            });
+
+            const user = await db.user_details.create({
+                data: {
+                    email: data.Email,
+                    password: data.Password,
+                    frist_name: data.first_name,
+                    last_name: data.last_name,
+                    github_link: data.github_link,
+                    hashnode_link: data.hashnode_link,
+                    peerlist_link: data.peerlist_link,
+                    tweeter_link: data.tweeter_link,
+                    role: ROLE.MEMBER,
+                },
+            });
+
+            const user_cohort_mapping = await db.user_cohort_mapping.create({
+                data: {
+                    user_id: user.id,
+                    cohort_id: cohort.id,
+                },
+            });

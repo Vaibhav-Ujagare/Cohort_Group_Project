@@ -153,3 +153,17 @@ export const requestGroupToJoin = asyncHandler(async (req, res) => {
             new ApiResponse(200, joiningRequest, "Request Send Successfully"),
         );
 });
+
+export const getAllrequest = asyncHandler(async (req, res) => {
+    const AlljoiningRequest = await db.group_joining_request_details.findMany();
+
+    return res
+        .status(201)
+        .json(
+            new ApiResponse(
+                200,
+                AlljoiningRequest,
+                "All Request Fetched Successfully",
+            ),
+        );
+});

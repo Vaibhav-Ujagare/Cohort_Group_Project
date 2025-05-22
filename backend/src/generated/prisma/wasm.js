@@ -124,7 +124,7 @@ exports.Prisma.User_detailsScalarFieldEnum = {
   id: 'id',
   email: 'email',
   password: 'password',
-  frist_name: 'frist_name',
+  first_name: 'first_name',
   last_name: 'last_name',
   refreshToken: 'refreshToken',
   role: 'role',
@@ -188,6 +188,12 @@ exports.Prisma.User_group_mappingScalarFieldEnum = {
   is_active_member: 'is_active_member'
 };
 
+exports.Prisma.Super_adminScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  password: 'password'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -215,7 +221,8 @@ exports.Prisma.ModelName = {
   cohort_details: 'cohort_details',
   group_joining_request_details: 'group_joining_request_details',
   notice_board_details: 'notice_board_details',
-  user_group_mapping: 'user_group_mapping'
+  user_group_mapping: 'user_group_mapping',
+  super_admin: 'super_admin'
 };
 
 /**
