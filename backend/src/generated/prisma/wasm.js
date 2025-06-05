@@ -126,8 +126,6 @@ exports.Prisma.User_detailsScalarFieldEnum = {
   password: 'password',
   first_name: 'first_name',
   last_name: 'last_name',
-  refreshToken: 'refreshToken',
-  accessToken: 'accessToken',
   role: 'role',
   github_link: 'github_link',
   hashnode_link: 'hashnode_link',
@@ -192,7 +190,9 @@ exports.Prisma.User_group_mappingScalarFieldEnum = {
 exports.Prisma.Super_adminScalarFieldEnum = {
   id: 'id',
   username: 'username',
-  password: 'password'
+  password: 'password',
+  refreshToken: 'refreshToken',
+  accessToken: 'accessToken'
 };
 
 exports.Prisma.SortOrder = {

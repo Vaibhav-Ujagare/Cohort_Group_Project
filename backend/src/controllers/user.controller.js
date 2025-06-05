@@ -10,21 +10,20 @@ import { ROLE } from "../generated/prisma/index.js";
 
 export const generateAccessAndRefreshTokens = async (userId) => {
     try {
-        const user = await db.user_details.findUnique({
+        const user = await db.super_admin.findUnique({
             where: {
                 id: userId,
             },
             select: {
                 id: true,
-                email: true,
-                role: true,
+                username: true,
             },
         });
 
         const accessToken = jwt.sign(
             {
                 id: user.id,
-                email: user.email,
+                username: user.username,
             },
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: process.env.ACCESS_TOKEN_EXPIRY },
@@ -33,13 +32,15 @@ export const generateAccessAndRefreshTokens = async (userId) => {
         const refreshToken = jwt.sign(
             {
                 id: user.id,
-                email: user.email,
+                username: user.username,
             },
             process.env.REFRESH_TOKEN_SECRET,
             { expiresIn: process.env.REFRESH_TOKEN_EXPIRY },
         );
 
-        await db.user_details.update({
+        console.log(user.username);
+
+        await db.super_admin.update({
             where: { id: user.id },
             data: { refreshToken },
         });
@@ -54,20 +55,11 @@ export const generateAccessAndRefreshTokens = async (userId) => {
 };
 
 export const registerUser = asyncHandler(async (req, res) => {
-    const {
-        email,
-        password,
-        first_name,
-        last_name,
-        github_link,
-        hashnode_link,
-        peerlist_link,
-        tweeter_link,
-    } = req.body;
+    const { username, password } = req.body;
 
-    const existingUser = await db.user_details.findUnique({
+    const existingUser = await db.super_admin.findUnique({
         where: {
-            email,
+            username,
         },
     });
 
@@ -77,17 +69,10 @@ export const registerUser = asyncHandler(async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await db.user_details.create({
+    const newUser = await db.super_admin.create({
         data: {
-            email,
+            username,
             password: hashedPassword,
-            first_name,
-            last_name,
-            github_link,
-            hashnode_link,
-            peerlist_link,
-            tweeter_link,
-            role: "MEMBER",
         },
     });
 
@@ -101,13 +86,45 @@ export const registerUser = asyncHandler(async (req, res) => {
 });
 
 export const loginUser = asyncHandler(async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = await db.super_admin.findUnique({
+        where: {
+            username,
+        },
+    });
+
+    if (!user) {
+        throw new ApiError(401, "User Not exists");
+    }
+
+    const isPasswordMatched = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordMatched) {
+        throw new ApiError(401, "Wrong password");
+    }
+
+    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
+        user.id,
+    );
+
+    const cookieOptions = {
+        httpOnly: true,
+        secure: true,
+        maxAge: 24 * 60 * 60 * 1000,
+    };
+    res.cookie("accessToken", accessToken, cookieOptions);
+    res.cookie("refreshToken", refreshToken, cookieOptions);
+
+    res.status(200).json({
+        message: "You Logged in as super admin",
+    });
+});
+
+export const uploadCSV = asyncHandler(async (req, res) => {
     const csvFile = req.files?.cohort_data[0]?.path;
 
     const results = [];
-
-    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
-        user._id,
-    );
 
     fs.createReadStream(csvFile)
         .pipe(csvParser())
@@ -136,7 +153,7 @@ export const loginUser = asyncHandler(async (req, res) => {
                         },
                         create: {
                             email: row.Email,
-                            password: row.Password,
+                            password: hashedPassword,
                             first_name: row.first_name,
                             last_name: row.last_name,
                             github_link: row.github_link,

@@ -15,13 +15,12 @@ enum ROLE {
 }
 
 model user_details {
-  id                            String                          @id @default(uuid())
-  email                         String                          @unique
-  password                      String
-  first_name                    String
-  last_name                     String
-  refreshToken                  String?
-  accessToken                   String?
+  id         String @id @default(uuid())
+  email      String @unique
+  password   String
+  first_name String
+  last_name  String
+
   role                          ROLE
   github_link                   String?
   hashnode_link                 String?
@@ -104,7 +103,9 @@ model user_group_mapping {
 }
 
 model super_admin {
-  id       String @id @default(uuid())
-  username String @unique
-  password String
+  id           String  @id @default(uuid())
+  username     String  @unique
+  password     String
+  refreshToken String?
+  accessToken  String?
 }
