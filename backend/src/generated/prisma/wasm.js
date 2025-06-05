@@ -127,6 +127,7 @@ exports.Prisma.User_detailsScalarFieldEnum = {
   first_name: 'first_name',
   last_name: 'last_name',
   refreshToken: 'refreshToken',
+  accessToken: 'accessToken',
   role: 'role',
   github_link: 'github_link',
   hashnode_link: 'hashnode_link',

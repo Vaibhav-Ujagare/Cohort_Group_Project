@@ -1678,6 +1678,7 @@ export namespace Prisma {
     first_name: string | null
     last_name: string | null
     refreshToken: string | null
+    accessToken: string | null
     role: $Enums.ROLE | null
     github_link: string | null
     hashnode_link: string | null
@@ -1692,6 +1693,7 @@ export namespace Prisma {
     first_name: string | null
     last_name: string | null
     refreshToken: string | null
+    accessToken: string | null
     role: $Enums.ROLE | null
     github_link: string | null
     hashnode_link: string | null
@@ -1706,6 +1708,7 @@ export namespace Prisma {
     first_name: number
     last_name: number
     refreshToken: number
+    accessToken: number
     role: number
     github_link: number
     hashnode_link: number
@@ -1722,6 +1725,7 @@ export namespace Prisma {
     first_name?: true
     last_name?: true
     refreshToken?: true
+    accessToken?: true
     role?: true
     github_link?: true
     hashnode_link?: true
@@ -1736,6 +1740,7 @@ export namespace Prisma {
     first_name?: true
     last_name?: true
     refreshToken?: true
+    accessToken?: true
     role?: true
     github_link?: true
     hashnode_link?: true
@@ -1750,6 +1755,7 @@ export namespace Prisma {
     first_name?: true
     last_name?: true
     refreshToken?: true
+    accessToken?: true
     role?: true
     github_link?: true
     hashnode_link?: true
@@ -1837,6 +1843,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken: string | null
+    accessToken: string | null
     role: $Enums.ROLE
     github_link: string | null
     hashnode_link: string | null
@@ -1868,6 +1875,7 @@ export namespace Prisma {
     first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
+    accessToken?: boolean
     role?: boolean
     github_link?: boolean
     hashnode_link?: boolean
@@ -1888,6 +1896,7 @@ export namespace Prisma {
     first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
+    accessToken?: boolean
     role?: boolean
     github_link?: boolean
     hashnode_link?: boolean
@@ -1902,6 +1911,7 @@ export namespace Prisma {
     first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
+    accessToken?: boolean
     role?: boolean
     github_link?: boolean
     hashnode_link?: boolean
@@ -1916,6 +1926,7 @@ export namespace Prisma {
     first_name?: boolean
     last_name?: boolean
     refreshToken?: boolean
+    accessToken?: boolean
     role?: boolean
     github_link?: boolean
     hashnode_link?: boolean
@@ -1923,7 +1934,7 @@ export namespace Prisma {
     tweeter_link?: boolean
   }
 
-  export type user_detailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "first_name" | "last_name" | "refreshToken" | "role" | "github_link" | "hashnode_link" | "peerlist_link" | "tweeter_link", ExtArgs["result"]["user_details"]>
+  export type user_detailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "first_name" | "last_name" | "refreshToken" | "accessToken" | "role" | "github_link" | "hashnode_link" | "peerlist_link" | "tweeter_link", ExtArgs["result"]["user_details"]>
   export type user_detailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     group_details?: boolean | user_details$group_detailsArgs<ExtArgs>
     group_joining_request_details?: boolean | user_details$group_joining_request_detailsArgs<ExtArgs>
@@ -1951,6 +1962,7 @@ export namespace Prisma {
       first_name: string
       last_name: string
       refreshToken: string | null
+      accessToken: string | null
       role: $Enums.ROLE
       github_link: string | null
       hashnode_link: string | null
@@ -2390,6 +2402,7 @@ export namespace Prisma {
     readonly first_name: FieldRef<"user_details", 'String'>
     readonly last_name: FieldRef<"user_details", 'String'>
     readonly refreshToken: FieldRef<"user_details", 'String'>
+    readonly accessToken: FieldRef<"user_details", 'String'>
     readonly role: FieldRef<"user_details", 'ROLE'>
     readonly github_link: FieldRef<"user_details", 'String'>
     readonly hashnode_link: FieldRef<"user_details", 'String'>
@@ -10431,6 +10444,7 @@ export namespace Prisma {
     first_name: 'first_name',
     last_name: 'last_name',
     refreshToken: 'refreshToken',
+    accessToken: 'accessToken',
     role: 'role',
     github_link: 'github_link',
     hashnode_link: 'hashnode_link',
@@ -10627,6 +10641,7 @@ export namespace Prisma {
     first_name?: StringFilter<"user_details"> | string
     last_name?: StringFilter<"user_details"> | string
     refreshToken?: StringNullableFilter<"user_details"> | string | null
+    accessToken?: StringNullableFilter<"user_details"> | string | null
     role?: EnumROLEFilter<"user_details"> | $Enums.ROLE
     github_link?: StringNullableFilter<"user_details"> | string | null
     hashnode_link?: StringNullableFilter<"user_details"> | string | null
@@ -10646,6 +10661,7 @@ export namespace Prisma {
     first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrderInput | SortOrder
+    accessToken?: SortOrderInput | SortOrder
     role?: SortOrder
     github_link?: SortOrderInput | SortOrder
     hashnode_link?: SortOrderInput | SortOrder
@@ -10668,6 +10684,7 @@ export namespace Prisma {
     first_name?: StringFilter<"user_details"> | string
     last_name?: StringFilter<"user_details"> | string
     refreshToken?: StringNullableFilter<"user_details"> | string | null
+    accessToken?: StringNullableFilter<"user_details"> | string | null
     role?: EnumROLEFilter<"user_details"> | $Enums.ROLE
     github_link?: StringNullableFilter<"user_details"> | string | null
     hashnode_link?: StringNullableFilter<"user_details"> | string | null
@@ -10687,6 +10704,7 @@ export namespace Prisma {
     first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrderInput | SortOrder
+    accessToken?: SortOrderInput | SortOrder
     role?: SortOrder
     github_link?: SortOrderInput | SortOrder
     hashnode_link?: SortOrderInput | SortOrder
@@ -10707,6 +10725,7 @@ export namespace Prisma {
     first_name?: StringWithAggregatesFilter<"user_details"> | string
     last_name?: StringWithAggregatesFilter<"user_details"> | string
     refreshToken?: StringNullableWithAggregatesFilter<"user_details"> | string | null
+    accessToken?: StringNullableWithAggregatesFilter<"user_details"> | string | null
     role?: EnumROLEWithAggregatesFilter<"user_details"> | $Enums.ROLE
     github_link?: StringNullableWithAggregatesFilter<"user_details"> | string | null
     hashnode_link?: StringNullableWithAggregatesFilter<"user_details"> | string | null
@@ -11139,6 +11158,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -11158,6 +11178,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -11177,6 +11198,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11196,6 +11218,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11215,6 +11238,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -11229,6 +11253,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11243,6 +11268,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11773,6 +11799,7 @@ export namespace Prisma {
     first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrder
+    accessToken?: SortOrder
     role?: SortOrder
     github_link?: SortOrder
     hashnode_link?: SortOrder
@@ -11787,6 +11814,7 @@ export namespace Prisma {
     first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrder
+    accessToken?: SortOrder
     role?: SortOrder
     github_link?: SortOrder
     hashnode_link?: SortOrder
@@ -11801,6 +11829,7 @@ export namespace Prisma {
     first_name?: SortOrder
     last_name?: SortOrder
     refreshToken?: SortOrder
+    accessToken?: SortOrder
     role?: SortOrder
     github_link?: SortOrder
     hashnode_link?: SortOrder
@@ -13076,6 +13105,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13094,6 +13124,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13192,6 +13223,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13210,6 +13242,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13275,6 +13308,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13293,6 +13327,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13348,6 +13383,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13366,6 +13402,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13447,6 +13484,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13465,6 +13503,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13532,6 +13571,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13550,6 +13590,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13568,6 +13609,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13586,6 +13628,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13620,6 +13663,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13638,6 +13682,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13683,6 +13728,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13701,6 +13747,7 @@ export namespace Prisma {
     first_name: string
     last_name: string
     refreshToken?: string | null
+    accessToken?: string | null
     role: $Enums.ROLE
     github_link?: string | null
     hashnode_link?: string | null
@@ -13768,6 +13815,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13786,6 +13834,7 @@ export namespace Prisma {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     github_link?: NullableStringFieldUpdateOperationsInput | string | null
     hashnode_link?: NullableStringFieldUpdateOperationsInput | string | null

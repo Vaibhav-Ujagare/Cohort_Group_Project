@@ -7,7 +7,6 @@ import jwt from "jsonwebtoken";
 import fs from "fs";
 import csvParser from "csv-parser";
 import { ROLE } from "../generated/prisma/index.js";
-import { create } from "domain";
 
 export const generateAccessAndRefreshTokens = async (userId) => {
     try {
@@ -58,7 +57,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     const {
         email,
         password,
-        frist_name,
+        first_name,
         last_name,
         github_link,
         hashnode_link,
@@ -82,7 +81,7 @@ export const registerUser = asyncHandler(async (req, res) => {
         data: {
             email,
             password: hashedPassword,
-            frist_name,
+            first_name,
             last_name,
             github_link,
             hashnode_link,
@@ -102,10 +101,13 @@ export const registerUser = asyncHandler(async (req, res) => {
 });
 
 export const loginUser = asyncHandler(async (req, res) => {
-    const { email, password } = req.body;
     const csvFile = req.files?.cohort_data[0]?.path;
 
     const results = [];
+
+    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
+        user._id,
+    );
 
     fs.createReadStream(csvFile)
         .pipe(csvParser())
@@ -116,13 +118,14 @@ export const loginUser = asyncHandler(async (req, res) => {
             try {
                 for (const row of results) {
                     // Create User
+                    const hashedPassword = await bcrypt.hash(row.Password, 10);
                     const user = await db.user_details.upsert({
                         where: {
                             email: row.Email,
                         },
                         update: {
                             email: row.Email,
-                            password: row.Password,
+                            password: hashedPassword,
                             first_name: row.first_name,
                             last_name: row.last_name,
                             github_link: row.github_link,
@@ -178,52 +181,4 @@ export const loginUser = asyncHandler(async (req, res) => {
                 fs.unlinkSync(csvFile);
             }
         });
-
-    // const user = await db.user_details.findUnique({
-    //     where: {
-    //         email,
-    //     },
-    // });
-
-    // if (!user) {
-    //     throw new ApiError(401, "Invalid Username of Password");
-    // }
-
-    // const isPasswordMatched = await bcrypt.compare(password, user.password);
-
-    // if (!isPasswordMatched) {
-    //     throw new ApiError(401, "Invalid Username of Password");
-    // }
-
-    // const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
-    //     user.id,
-    // );
-
-    // await db.user_details.update({
-    //     where: { id: user.id },
-    //     data: { refreshToken },
-    // });
-
-    // const loggedInUser = await db.user_details.findUnique({
-    //     where: {
-    //         id: user.id,
-    //     },
-    //     select: {
-    //         email: true,
-    //         id: true,
-    //     },
-    // });
-
-    // const cookieOptions = {
-    //     httpOnly: true,
-    //     secure: process.env.NODE_ENV === "production", // only true in production
-    //     sameSite: "strict",
-    //     maxAge: 24 * 60 * 60 * 1000, // 1 day
-    // };
-
-    // res.cookie("accessToken", accessToken, cookieOptions);
-    // res.cookie("refreshToken", refreshToken, cookieOptions);
-    // return res
-    //     .status(200)
-    //     .json(new ApiResponse(200, {}, "User Logged In Successfully"));
 });

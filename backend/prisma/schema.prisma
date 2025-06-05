@@ -21,6 +21,7 @@ model user_details {
   first_name                    String
   last_name                     String
   refreshToken                  String?
+  accessToken                   String?
   role                          ROLE
   github_link                   String?
   hashnode_link                 String?
